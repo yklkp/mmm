@@ -2,6 +2,7 @@
 ion-content{background: #f8f8f8;}
 p{margin: 0 !important;}
 .hshow{display: block !important;}
+.hhide{display: none !important;}
 .tabs {
     display: -webkit-box;
     display: -webkit-flex;
@@ -228,6 +229,20 @@ p{margin: 0 !important;}
 .ge_size span:first-child{margin-left: 0;color: black;}
 .ge_property{padding-bottom: 5%;margin-bottom: 5%;border-bottom: 1px solid #999999;position: relative;}
 .ge_property div{display: inline-block;}
+.red {
+    background: red;
+    width: 11px;
+    height: 11px;
+    margin-left: 12px;
+    display: inline-block;
+}
+.black{
+    background: black;
+    width: 11px;
+    height: 11px;
+    margin-left: 12px;
+    display: inline-block;
+}
 .ge_num{float: right;margin-right: 5%;width: 100px;margin-top: -1.5%;}
 .ge_sl{margin-right: 6%;}
 .ge_int{outline: none;border: none;text-align: center;width: 20px;}
@@ -241,7 +256,7 @@ p{margin: 0 !important;}
 .ge_buy{background: #ea1101;float: right;width: 30%;height: 45px;line-height: 45px;text-align: center;color: #fff;}
 .ge_hei_box{display: none;position: fixed;bottom: 0;height: 100%;width: 100%;z-index: 10;background: rgba(8, 8, 8, 0.5);}
 .ge_content{background: #f8f8f8;position: fixed;bottom: 0;width: 100%;}
-.ge_p_img{width: 37%;height: 21vh;position: absolute;top: 51%;left: 5%;z-index: 10;}
+.ge_p_img{width: 37%;height: 21vh;position: absolute;top: 52%;left: 5%;z-index: 10;}
 .ge_p_list1{border-bottom: 1px solid #999999;padding-left: 46%;}
 .ge_p_list1 dl dd{margin-bottom: 6%;}
 .ge_p_list1 dl dd:first-child{margin-top:4%;margin-bottom: 8%;}
@@ -250,17 +265,13 @@ p{margin: 0 !important;}
 .ge_p_price{margin-right: 64px;}
 .ge_p_num{color: red;}
 .ge_cy{margin-right: 33px;}
-.ge_p_size span{display: inline-block;margin: 4% 2%;color: #999999;width: 30px;height: 30px;text-align: center;line-height: 30px;}
-.ge_tcc{display: inline-block;margin: 4% 5%;}
-.ge_tys{display: inline-block;margin: 4% 5%;}
-.ge_bys{margin-bottom: 3%;}
-.ge_p_col{
-    margin-left: 4%;
-    margin-right: 3%;
-}
+.ge_p_size{margin: 5% auto;margin-left: 5%;}
+.ge_p_size span{display: inline-block;margin: 4% 5%;color: #999999;}
+.ge_p_size span:first-child{margin-left: 0;color: black;}
+.ge_p_col{margin-left: 5%;}
 .ge_confirm{position: relative;}
 .ge_price{
-    margin: 8% auto;
+    margin: 5% auto;
     font-size: 22px;
 }
 .ge_zprice{
@@ -274,18 +285,12 @@ p{margin: 0 !important;}
 .ge_c_buy{float: right;width: 30%;height: 45px;line-height: 45px;text-align: center;background: red;color: #fff;}
 .ge_close {
     position: absolute;
-    top: 62%;
+    top: 63%;
     left: 94%;
     z-index: 20;
     width: 10px;
     height: 10px;
 }
-.black{display: inline-block;width: 14px;height: 14px;background: black;}
-.white{display: inline-block;width: 14px;height: 14px;background: white;}
-.grey{display: inline-block;width: 14px;height: 14px;background: grey;}
-.blue{display: inline-block;width: 14px;height: 14px;background: blue;}
-.csize{background: #0acefd;}
-.ccolor{width: 20px;height: 20px;}
 /*goodsdetail*/
 /*confirm_order*/
 .order{bottom: 49px;}
@@ -300,14 +305,14 @@ p{margin: 0 !important;}
 .or_s_box{background: #fff;position: relative;margin-bottom: 7%;}
 .or_s_img{
     position: absolute;
-    top: 9%;
+    top: 22%;
     left: 5.5%;
     width: 36%;
     height: 22vh;
 }
 .or_m_list{padding-left: 5%;padding-top: 4%;padding-bottom: 4%;border-bottom: 2px solid #f8f8f8;text-align: left;}
-.or_s_list{padding-left: 45%;padding-top: 2%;padding-bottom: 2%;border-bottom: 2px solid #f8f8f8;}
-.or_s_list p{padding: 4%;}
+.or_s_list{padding-left: 45%;margin-top: 2%;padding-bottom: 3%;border-bottom: 2px solid #f8f8f8;}
+.or_s_list p{padding: 3%;}
 .or_ctxt{
     float: right;
     margin-right: 5%;
@@ -319,12 +324,11 @@ input{outline: none;border: none;display: inline-block !important;background: #f
     margin-top: 2%;
     padding-bottom: 4%;
 }
-.or_w_box input{background: #fff;}
 .or_pay_box{background: #fff;}
 .or_fq{padding: 4%;border-bottom: 2px solid #f8f8f8;}
 .or_df{padding: 4%;}
 .or_confirm{position: fixed;bottom: 0;width: 100%;background: #fff;}
-.or_price{position: absolute;left: 44.5%;}
+.or_price{position: absolute;left: 42.5%;}
 .or_n_price{color: red;}
 .or_yf{position: absolute;top: 20px;left: 55%;}
 .or_submit{float: right;width: 30%;height: 45px;line-height: 45px;text-align: center;background: red;color: #fff;}

@@ -292,17 +292,17 @@ angular.module('mobistore.controllers', [])
     //             });
     //         };
     //     }])
-    .controller('HomeCtrl', ['$rootScope', '$scope', '$state', '$location', '$timeout', '$ionicHistory', '$ionicModal', '$ionicPopover', '$cordovaBarcodeScanner', 'Util', 'StringUtil', 'ClientOpt', 'MyDialog', '$sce', 'Constant', '$ionicSlideBoxDelegate',
-        function ($rootScope, $scope, $state, $location, $timeout, $ionicHistory, $ionicModal, $ionicPopover, $cordovaBarcodeScanner, Util, StringUtil, ClientOpt, MyDialog, $sce, Constant, $ionicSlideBoxDelegate) {
-            $scope.yx_curpage = 0;
-            $scope.s_curpage = 0;
-            $scope.z_curpage = 0;
-            $scope.r_curpage = 0;
-            $scope.data = { curTab: 0 };
-            $scope.instance = {};
-            $scope.is_refresh = 1;
+    .controller('HomeCtrl', ['$rootScope', '$scope', '$state', '$location', '$timeout', '$ionicHistory', '$ionicModal', '$ionicPopover', '$cordovaBarcodeScanner','Util', 'StringUtil', 'ClientOpt', 'MyDialog','$sce','Constant','$ionicSlideBoxDelegate',
+        function ($rootScope, $scope, $state, $location, $timeout, $ionicHistory, $ionicModal, $ionicPopover,$cordovaBarcodeScanner, Util, StringUtil, ClientOpt, MyDialog,$sce,Constant,$ionicSlideBoxDelegate) {
+            $scope.yx_curpage=0;
+            $scope.s_curpage=0;
+            $scope.z_curpage=0;
+            $scope.r_curpage=0;
+            $scope.data={curTab:0};
+            $scope.instance={};
+            $scope.is_refresh=1;
             $scope.$on('$ionicView.enter', function (scopes, states) {
-                $scope.rootEle = $("#home[nav-view='active']");
+                $scope.rootEle=$("#home[nav-view='active']");
                 $rootScope.get_yorder_num();
                 //广告
                 // if (!$scope.adRoaded){
@@ -334,182 +334,183 @@ angular.module('mobistore.controllers', [])
                 if ($scope.loaded) {
                     return;
                 }
-                $scope.loaded = true;
+                $scope.loaded=true;
                 $scope.init();
             });
-            $scope.doRefresh = function () {
-                if ($scope.data.curTab == 0) {
-                    $scope.yx_curpage = 0;
+            $scope.doRefresh=function(){
+                if($scope.data.curTab==0){
+                    $scope.yx_curpage=0;
                     $scope.getmodule();
                 }
-                else if ($scope.data.curTab == 1) {
-                    $scope.s_curpage = 0;
+                else if($scope.data.curTab==1){
+                    $scope.s_curpage=0;
                     $scope.getselection();
                     $scope.getselectiongoods();
                     $scope.getrecbrandlist();
                 }
-                else if ($scope.data.curTab == 2) {
-                    $scope.z_curpage = 0;
+                else if($scope.data.curTab==2){
+                    $scope.z_curpage=0;
                     $scope.getrecspecial();
                     $scope.getspecial();
                 }
-                else if ($scope.data.curTab == 3) {
-                    $scope.r_curpage = 0;
+                else if($scope.data.curTab==3){
+                    $scope.r_curpage=0;
                     $scope.getrecrare();
                     $scope.getraregoods();
                     $scope.getrare();
                 }
                 $scope.$broadcast('scroll.refreshComplete');
             }
-            $scope.init = function () {
+            $scope.init=function(){
                 $scope.getmodule();
                 $scope.getselection();
                 $scope.getselectiongoods();
+                $scope.getseries();
                 $scope.getrecbrandlist();
                 $scope.getrecspecial();
                 $scope.getspecial();
                 $scope.getrecrare();
                 //$scope.getraregoods();
                 $scope.getrare();
-                $scope.mySwiper = new Swiper('#btn11', {
-                    initialSlide: 0,
-                    onTransitionStart: function (swiper) {
-                        $scope.data.curTab = swiper.activeIndex;
+                $scope.mySwiper=new Swiper('#btn11',{
+                    initialSlide :0,
+                    onTransitionStart : function (swiper) {
+                        $scope.data.curTab=swiper.activeIndex;
                         $($scope.rootEle).find(".back_top").slideUp(100);
                         $scope.$apply();
                     }
                 })
-                $($scope.rootEle).find(".back_top").click(function () {
+                $($scope.rootEle).find(".back_top").click(function() {
                     $($scope.thisDiv).scrollTop(0);
                 })
-                $($scope.rootEle).find(".esb_01,.esb_02,.esb_03").scroll(function () {
+                $($scope.rootEle).find(".esb_01,.esb_02,.esb_03").scroll(function() {
                     $scope.thisDiv = this;
                     var scrollTop = $(this).scrollTop();
-                    if (scrollTop < 10) {
-                        $scope.is_refresh = 1;
-                    } else {
-                        $scope.is_refresh = 0;
+                    if( scrollTop<10){
+                        $scope.is_refresh=1;
+                    }else{
+                        $scope.is_refresh=0;
                     }
                     $scope.$apply();
-                    if (scrollTop < 1500) {
+                    if (scrollTop<1500){
                         $($scope.rootEle).find(".back_top").slideUp(100);
-                    } else {
+                    }else{
                         $($scope.rootEle).find(".back_top").slideDown(100);
                     }
                 })
-                $($scope.rootEle).find(".esb").scroll(function () {
+                $($scope.rootEle).find(".esb").scroll(function() {
                     $scope.thisDiv = this;
-                    var viewH = $(this).height();
-                    var contentH = $(this).get(0).scrollHeight;
+                    var viewH =$(this).height();
+                    var contentH =$(this).get(0).scrollHeight;
                     var scrollTop = $(this).scrollTop();
-                    if (scrollTop < 10) {
-                        $scope.is_refresh = 1;
-                    } else {
-                        $scope.is_refresh = 0;
+                    if( scrollTop<10){
+                        $scope.is_refresh=1;
+                    }else{
+                        $scope.is_refresh=0;
                     }
                     $scope.$apply();
-                    if (scrollTop < 600) {
+                    if (scrollTop<600){
                         $($scope.rootEle).find(".back_top").slideUp(100);
-                    } else {
+                    }else{
                         $($scope.rootEle).find(".back_top").slideDown(100);
                     }
-                    if (contentH - viewH - scrollTop <= 10 && $scope.yx_hasmore) {
+                    if(contentH - viewH - scrollTop <= 10 && $scope.yx_hasmore) {
                         $scope.goods_more();
                     }
                 })
             }
-            $scope.showli = function (ss) {
+            $scope.showli=function(ss){
                 $scope.mySwiper.slideTo(ss, 700, false);
-                $scope.data.curTab = ss;
+                $scope.data.curTab=ss;
                 $($scope.rootEle).find(".back_top").slideUp(100);
 
             }
-            $scope.zhenxuantjFinish = function () {
+            $scope.zhenxuantjFinish=function(){
                 new Swiper('#zhenxuan_tj', {
-                    slidesPerView: 2,
+                    slidesPerView:2,
                     slidesPerColumn: 2,
                     paginationClickable: true,
                     spaceBetween: 10
                 });
             }
-            $scope.getmodule = function () {
+            $scope.getmodule=function(){
                 ClientOpt.opt({
-                    act: 'store',
-                    op: 'get_module'
+                    act:  'store',
+                    op:  'get_module'
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $scope.module_list = json.datas.module_list;
-                        $.each($scope.module_list, function (i, item) {
-                            if (item.id == 1 && item.status == 1) {
-                                $scope.lunbo = true;
+                        $scope.module_list=json.datas.module_list;
+                        $.each($scope.module_list,function(i,item){
+                            if(item.id==1&&item.status==1){
+                                $scope.lunbo=true;
                                 $scope.loadlunbo();
                             }
-                            else if (item.id == 2 && item.status == 1) {
-                                $scope.guanggao = true;
+                            else if(item.id==2&&item.status==1){
+                                $scope.guanggao=true;
                                 $scope.loadlguanggao();
                             }
-                            else if (item.id == 3 && item.status == 1) {
-                                $scope.xinping = true;
+                            else if(item.id==3&&item.status==1){
+                                $scope.xinping=true;
                                 $scope.loadxinping();
                             }
-                            else if (item.id == 4 && item.status == 1) {
-                                $scope.shiping = true;
+                            else if(item.id==4&&item.status==1){
+                                $scope.shiping=true;
                                 $scope.loadshiping();
                             }
-                            else if (item.id == 5 && item.status == 1) {
-                                $scope.jianren = true;
+                            else if(item.id==5&&item.status==1){
+                                $scope.jianren=true;
                                 $scope.loadjianren();
                             }
-                            else if (item.id == 6 && item.status == 1) {
-                                $scope.youxuan = true;
+                            else if(item.id==6&&item.status==1){
+                                $scope.youxuan=true;
                                 $scope.loadyouxuan();
                             }
-                            else if (item.id == 7 && item.status == 1) {
-                                $scope.tehui = true;
+                            else if(item.id==7&&item.status==1){
+                                $scope.tehui=true;
                                 $scope.loadtehui();
                             }
-                            else if (item.id == 8 && item.status == 1) {
-                                $scope.tuiguang = true;
+                            else if(item.id==8&&item.status==1){
+                                $scope.tuiguang=true;
                                 $scope.tuiguanglist();
                             }
-                            else if (item.id == 9 && item.status == 1) {
-                                $scope.season = true;
+                            else if(item.id==9&&item.status==1){
+                                $scope.season=true;
                                 $scope.seasoninfo();
                             }
-                            else if (item.id == 10 && item.status == 1) {
-                                $scope.class = true;
+                            else if(item.id==10&&item.status==1){
+                                $scope.class=true;
                                 $scope.classlist();
                             }
-                            else if (item.id == 11 && item.status == 1) {
-                                $scope.private = true;
+                            else if(item.id==11&&item.status==1){
+                                $scope.private=true;
                                 $scope.privatelist();
                             }
                         });
                     }
                 });
             }
-            $scope.gotoGoods = function (goods_id) {
+            $scope.gotoGoods=function(goods_id){
                 event.stopPropagation();
-                $rootScope.gotoPage("/goods_detail/" + goods_id + "/");
+                $rootScope.gotoPage("/goods_detail/"+goods_id+"/");
             }
-            $scope.getselection = function () {
+            $scope.getselection=function(){
                 ClientOpt.opt({
-                    act: 'store',
-                    op: 'get_selection',
+                    act:  'store',
+                    op:  'get_selection',
                     curpage: $scope.s_curpage
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        if ($scope.s_curpage == 0) {
-                            $scope.selection_list = json.datas.list;
+                        if($scope.s_curpage==0){
+                            $scope.selection_list=json.datas.list;
                         }
-                        else {
-                            $.each(json.datas.list, function (i, item) {
+                        else{
+                            $.each(json.datas.list,function(i,item){
                                 $scope.selection_list.push(item);
                             });
                             $scope.$broadcast('scroll.infiniteScrollComplete');
@@ -518,36 +519,45 @@ angular.module('mobistore.controllers', [])
                     }
                 });
             }
-            $scope.smore = function () {
+            $scope.smore=function(){
                 $scope.s_curpage++;
                 $scope.getselection();
             }
-            $scope.getselectiongoods = function () {
+            $scope.getselectiongoods=function(){
+                ClientOpt.opt({
+                    act:  'goods',
+                    op:  'get_selection_goods'
+                }, function (json) {
+                    $scope.selection_goods=json.datas.goods_list;
+                });
+            };
+            $scope.getseries=function(){
                 ClientOpt.opt({
                     act: 'goods',
-                    op: 'get_selection_goods'
-                }, function (json) {
-                    $scope.selection_goods = json.datas.goods_list;
+                    op: 'get_series'
+                },function (json) {
+                    //console.log(json);
+                    $scope.selection_series=json.datas.series_list;
                 });
-            }
-            $scope.getrecbrandlist = function () {
+            };
+            $scope.getrecbrandlist=function(){
                 ClientOpt.opt({
-                    act: 'store',
-                    op: 'get_brand_list',
+                    act:  'store',
+                    op:  'get_brand_list',
                     type: 'recommend'
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $scope.recommend_brand_list = json.datas.list;
+                        $scope.recommend_brand_list=json.datas.list;
                     }
                 });
             }
-            $scope.getrecspecial = function () {
+            $scope.getrecspecial=function(){
                 ClientOpt.opt({
-                    act: 'store',
-                    op: 'get_special',
+                    act:  'store',
+                    op:  'get_special',
                     type: 'recommend',
                     curpage: $scope.z_curpage
                 }, function (json) {
@@ -555,11 +565,11 @@ angular.module('mobistore.controllers', [])
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        if ($scope.z_curpage == 0) {
-                            $scope.rec_special_list = json.datas.list;
+                        if($scope.z_curpage==0){
+                            $scope.rec_special_list=json.datas.list;
                         }
-                        else {
-                            $.each(json.datas.list, function (i, item) {
+                        else{
+                            $.each(json.datas.list,function(i,item){
                                 $scope.rec_special_list.push(item);
                             });
                             $scope.$broadcast('scroll.infiniteScrollComplete');
@@ -568,27 +578,27 @@ angular.module('mobistore.controllers', [])
                     }
                 });
             }
-            $scope.zmore = function () {
+            $scope.zmore=function(){
                 $scope.z_curpage++;
                 $scope.getrecspecial();
             }
-            $scope.getspecial = function () {
+            $scope.getspecial=function(){
                 ClientOpt.opt({
-                    act: 'store',
-                    op: 'get_special'
+                    act:  'store',
+                    op:  'get_special'
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $scope.special_list = json.datas.list;
+                        $scope.special_list=json.datas.list;
                     }
                 });
             }
-            $scope.getrecrare = function () {
+            $scope.getrecrare=function(){
                 ClientOpt.opt({
-                    act: 'store',
-                    op: 'get_rare',
+                    act:  'store',
+                    op:  'get_rare',
                     type: 'recommend',
                     curpage: $scope.r_curpage
                 }, function (json) {
@@ -596,11 +606,11 @@ angular.module('mobistore.controllers', [])
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        if ($scope.r_curpage == 0) {
-                            $scope.rec_rare_list = json.datas.list;
+                        if($scope.r_curpage==0){
+                            $scope.rec_rare_list=json.datas.list;
                         }
-                        else {
-                            $.each(json.datas.list, function (i, item) {
+                        else{
+                            $.each(json.datas.list,function(i,item){
                                 $scope.rec_rare_list.push(item);
                             });
                             $scope.$broadcast('scroll.infiniteScrollComplete');
@@ -609,7 +619,7 @@ angular.module('mobistore.controllers', [])
                     }
                 });
             }
-            $scope.rmore = function () {
+            $scope.rmore=function(){
                 $scope.r_curpage++;
                 $scope.getrecrare();
             }
@@ -621,230 +631,230 @@ angular.module('mobistore.controllers', [])
             //         $scope.rare_goods=json.datas.goods_list;
             //     });
             // }
-            $scope.getrare = function () {
+            $scope.getrare=function(){
                 ClientOpt.opt({
-                    act: 'store',
-                    op: 'get_rare'
+                    act:  'store',
+                    op:  'get_rare'
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $scope.rare_list = json.datas.list;
+                        $scope.rare_list=json.datas.list;
                     }
                 });
             }
-            $scope.loadlunbo = function () {
+            $scope.loadlunbo=function(){
                 ClientOpt.opt({
-                    act: 'store',
-                    op: 'get_lunbo_list'
+                    act:  'store',
+                    op:  'get_lunbo_list'
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $scope.lunbo_list = json.datas.lunbo_list;
+                        $scope.lunbo_list=json.datas.lunbo_list;
                     }
                 });
             }
-            $scope.lunboFinish = function () {
-                new Swiper('#home_lunbo', {
+            $scope.lunboFinish=function(){
+                new Swiper('#home_lunbo',{
                     pagination: '#home_lunbo_pagination',
-                    observer: true,
+                    observer:true,
                     autoplay: 3000,
-                    observeParents: true
+                    observeParents:true
                 });
             }
-            $scope.tuiguanglist = function () {
+            $scope.tuiguanglist=function(){
                 ClientOpt.opt({
-                    act: 'store',
-                    op: 'get_tuiguang'
+                    act:  'store',
+                    op:  'get_tuiguang'
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $scope.tuiguang_list = json.datas.tuiguang;
+                        $scope.tuiguang_list=json.datas.tuiguang;
                     }
                 });
             }
-            $scope.tuiguangFinish = function () {
-                new Swiper('#tuiguang_lunbo', {
+            $scope.tuiguangFinish=function(){
+                new Swiper('#tuiguang_lunbo',{
                     pagination: '#tuiguang_lunbo_pagination',
-                    observer: true,
+                    observer:true,
                     autoplay: 3000,
-                    observeParents: true
+                    observeParents:true
                 });
             }
-            $scope.loadlguanggao = function () {
+            $scope.loadlguanggao=function(){
                 ClientOpt.opt({
-                    act: 'store',
-                    op: 'get_guanggao_list'
+                    act:  'store',
+                    op:  'get_guanggao_list'
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $scope.guanggao_list = json.datas.guanggao_list;
+                        $scope.guanggao_list=json.datas.guanggao_list;
                     }
                 });
             }
-            $scope.seasoninfo = function () {
+            $scope.seasoninfo=function(){
                 ClientOpt.opt({
-                    act: 'store',
-                    op: 'get_season'
+                    act:  'store',
+                    op:  'get_season'
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $scope.season_info = json.datas.season;
+                        $scope.season_info=json.datas.season;
                     }
                 });
             }
-            $scope.privatelist = function () {
+            $scope.privatelist=function(){
                 ClientOpt.opt({
-                    act: 'store',
-                    op: 'get_private_list'
+                    act:  'store',
+                    op:  'get_private_list'
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $scope.private_title = json.datas.private_title;
-                        $scope.private_list = json.datas.private_list;
+                        $scope.private_title=json.datas.private_title;
+                        $scope.private_list=json.datas.private_list;
                     }
                 });
             }
-            $scope.home_share = function () {
+            $scope.home_share=function(){
                 new Swiper('.home_share', {
-                    slidesPerView: 2,
+                    slidesPerView:2,
                     slidesPerColumn: 1,
                     paginationClickable: true,
                     spaceBetween: 10
                 });
             }
-            $scope.classlist = function () {
+            $scope.classlist=function(){
                 ClientOpt.opt({
-                    act: 'store',
-                    op: 'get_class_list'
+                    act:  'store',
+                    op:  'get_class_list'
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $scope.class_list = json.datas.class_list;
+                        $scope.class_list=json.datas.class_list;
                     }
                 });
             }
-            $scope.loadxinping = function () {
+            $scope.loadxinping = function (){
                 ClientOpt.opt({
-                    act: 'store',
-                    op: 'get_xinping'
+                    act:  'store',
+                    op:  'get_xinping'
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $scope.xinping = json.datas.xinping;
+                        $scope.xinping=json.datas.xinping;
                     }
                 });
             };
-            $scope.xinpingFinish = function () {
+            $scope.xinpingFinish=function(){
                 new Swiper('#home_xinping', {
-                    slidesPerView: 'auto',
-                    spaceBetween: 10
+                    slidesPerView : 'auto',
+                    spaceBetween : 10
                 });
             }
-            $scope.loadshiping = function () {
+            $scope.loadshiping = function (){
                 ClientOpt.opt({
-                    act: 'store',
-                    op: 'get_shiping'
+                    act:  'store',
+                    op:  'get_shiping'
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $scope.shiping = json.datas.shiping;
+                        $scope.shiping=json.datas.shiping;
                     }
                 });
             };
-            $scope.shipingFinish = function () {
+            $scope.shipingFinish=function(){
                 new Swiper('.home_shiping', {
-                    slidesPerView: 'auto',
-                    spaceBetween: 10
+                    slidesPerView : 'auto',
+                    spaceBetween : 10
                 });
             }
-            $scope.loadjianren = function () {
+            $scope.loadjianren=function(){
                 ClientOpt.opt({
-                    act: 'store',
-                    op: 'get_jianren_list'
+                    act:  'store',
+                    op:  'get_jianren_list'
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $scope.jianren = json.datas.jianren;
+                        $scope.jianren=json.datas.jianren;
                     }
                 });
             }
-            $scope.jianrenFinish = function () {
+            $scope.jianrenFinish=function(){
                 new Swiper('#home_jianren', {
-                    slidesPerView: 'auto',
-                    centeredSlides: true,
-                    initialSlide: 1,
-                    spaceBetween: 20
+                    slidesPerView : 'auto',
+                    centeredSlides : true,
+                    initialSlide:1,
+                    spaceBetween : 20
                 });
             }
-            $scope.loadyouxuan = function () {
+            $scope.loadyouxuan=function(){
                 ClientOpt.opt({
-                    act: 'store',
-                    op: 'get_yx_title'
+                    act:  'store',
+                    op:  'get_yx_title'
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $scope.yx_title = json.datas.title;
+                        $scope.yx_title=json.datas.title;
                     }
                 });
-                switch (parseInt(10 * Math.random())) {
+                switch(parseInt(10*Math.random())) {
                     case 0:
-                        $scope.order_by = "goods_id desc";
+                        $scope.order_by="goods_id desc";
                         break;
                     case 1:
-                        $scope.order_by = "goods_name desc";
+                        $scope.order_by="goods_name desc";
                         break;
                     case 2:
-                        $scope.order_by = "goods_click desc";
+                        $scope.order_by="goods_click desc";
                         break;
                     case 3:
-                        $scope.order_by = "gc_id_3 desc";
+                        $scope.order_by="gc_id_3 desc";
                         break;
                     case 4:
-                        $scope.order_by = "goods_price desc";
+                        $scope.order_by="goods_price desc";
                         break;
                     case 5:
-                        $scope.order_by = "vendor_id desc";
+                        $scope.order_by="vendor_id desc";
                         break;
                     case 6:
-                        $scope.order_by = "inner_sn desc";
+                        $scope.order_by="inner_sn desc";
                         break;
                     case 7:
-                        $scope.order_by = "goods_image desc";
+                        $scope.order_by="goods_image desc";
                         break;
                     case 8:
-                        $scope.order_by = "cross_sn desc";
+                        $scope.order_by="cross_sn desc";
                     case 9:
-                        $scope.order_by = "goods_click desc";
+                        $scope.order_by="goods_click desc";
                         break;
                 }
                 $scope.goodslist();
             }
-            $scope.goodslist = function () {
+            $scope.goodslist=function(){
                 ClientOpt.opt({
-                    act: 'goods',
-                    op: 'goods_list',
+                    act:  'goods',
+                    op:  'goods_list',
                     group: "gc_id_3",
                     order_by: $scope.order_by,
                     curpage: $scope.yx_curpage
@@ -853,74 +863,74 @@ angular.module('mobistore.controllers', [])
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        if ($scope.yx_curpage == 0) {
-                            $scope.goods_list = json.datas.goods_list;
+                        if($scope.yx_curpage==0){
+                            $scope.goods_list=json.datas.goods_list;
                         }
-                        else {
-                            $.each(json.datas.goods_list, function (i, item) {
+                        else{
+                            $.each(json.datas.goods_list,function(i,item){
                                 $scope.goods_list.push(item);
                             });
                             $scope.$broadcast('scroll.infiniteScrollComplete');
                         }
-                        $scope.yx_hasmore = json.hasmore;
+                        $scope.yx_hasmore=json.hasmore;
                     }
                 });
             }
-            $scope.goods_more = function () {
+            $scope.goods_more=function(){
                 $scope.yx_curpage++;
                 $scope.goodslist();
             }
-            $scope.goodsFinish = function () {
-                $($scope.rootEle).find(".esb").scroll(function () {
-                    var viewH = $(this).height();//可见高度
-                    var contentH = $(this).get(0).scrollHeight;//内容高度
+            $scope.goodsFinish=function(){
+                $($scope.rootEle).find(".esb").scroll(function() {
+                    var viewH =$(this).height();//可见高度
+                    var contentH =$(this).get(0).scrollHeight;//内容高度
                     var scrollTop = $(this).scrollTop();//滚动高度
-                    if (contentH - viewH - scrollTop <= 0 && !$scope.yx_hasmore) {
+                    if(contentH - viewH - scrollTop <= 0 && !$scope.yx_hasmore) {
                         $scope.mySwiper.slideTo(1, 700, false);
-                        $scope.data.curTab = 1;
+                        $scope.data.curTab=1;
                         $scope.$apply();
                     }
                 })
             }
-            $scope.goodsFinish_01 = function () {
-                $($scope.rootEle).find(".esb_01").scroll(function () {
-                    var viewH = $(this).height();//可见高度
-                    var contentH = $(this).get(0).scrollHeight;//内容高度
+            $scope.goodsFinish_01=function(){
+                $($scope.rootEle).find(".esb_01").scroll(function() {
+                    var viewH =$(this).height();//可见高度
+                    var contentH =$(this).get(0).scrollHeight;//内容高度
                     var scrollTop = $(this).scrollTop();//滚动高度
-                    if (contentH - viewH - scrollTop <= 0) {
+                    if(contentH - viewH - scrollTop <= 0) {
                         $scope.mySwiper.slideTo(2, 700, false);
-                        $scope.data.curTab = 2;
+                        $scope.data.curTab=2;
                         $scope.$apply();
                     }
                 })
             }
-            $scope.goodsFinish_02 = function () {
-                $($scope.rootEle).find(".esb_02").scroll(function () {
-                    var viewH = $(this).height();//可见高度
-                    var contentH = $(this).get(0).scrollHeight;//内容高度
+            $scope.goodsFinish_02=function(){
+                $($scope.rootEle).find(".esb_02").scroll(function() {
+                    var viewH =$(this).height();//可见高度
+                    var contentH =$(this).get(0).scrollHeight;//内容高度
                     var scrollTop = $(this).scrollTop();//滚动高度
-                    if (contentH - viewH - scrollTop <= 0) {
+                    if(contentH - viewH - scrollTop <= 0) {
                         $scope.mySwiper.slideTo(3, 700, false);
-                        $scope.data.curTab = 3;
+                        $scope.data.curTab=3;
                         $scope.$apply();
                     }
                 })
             }
-            $scope.loadtehui = function () {
+            $scope.loadtehui=function(){
                 ClientOpt.opt({
-                    act: 'store',
-                    op: 'get_tehui'
+                    act:  'store',
+                    op:  'get_tehui'
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $scope.tehui = json.datas.tehui;
+                        $scope.tehui=json.datas.tehui;
                     }
                 });
             }
-            $scope.follow = function (member_id) {
-                $rootScope.isLogin(function () {
+            $scope.follow = function(member_id){
+                $rootScope.isLogin(function(){
                     ClientOpt.opt({
                         act: 'goods',
                         op: 'save_follow_member',
@@ -930,16 +940,16 @@ angular.module('mobistore.controllers', [])
                             MyDialog.tip(json.datas.error);
                         }
                         else {
-                            $rootScope.mineReload = true;
+                            $rootScope.mineReload=true;
                             MyDialog.tip("关注成功！");
                         }
                     });
-                }, true);
+                },true);
             }
-            $scope.gotoclass = function (gc_name) {
+            $scope.gotoclass=function(gc_name){
                 event.stopPropagation();
-                $rootScope.gc_name = gc_name;
-                $rootScope.from_class = true;
+                $rootScope.gc_name=gc_name;
+                $rootScope.from_class=true;
                 $rootScope.gotoPage('/tab/storelist_up');
             }
         }])
@@ -993,22 +1003,22 @@ angular.module('mobistore.controllers', [])
                 })
             }
         }])
-    .controller('MeCtrl', ['$rootScope', '$scope', '$state', '$ionicHistory', '$location', '$ionicModal', '$ionicNativeTransitions', '$filter', 'MyDialog', 'ClientOpt', 'JpushService', 'StringUtil',
-        function ($rootScope, $scope, $state, $ionicHistory, $location, $ionicModal, $ionicNativeTransitions, $filter, MyDialog, ClientOpt, JpushService, StringUtil) {
+    .controller('MeCtrl', ['$rootScope', '$scope', '$state', '$ionicHistory', '$location', '$ionicModal','$ionicNativeTransitions','$filter','MyDialog','ClientOpt','JpushService','StringUtil',
+        function ($rootScope, $scope, $state, $ionicHistory, $location, $ionicModal,$ionicNativeTransitions,$filter,MyDialog,ClientOpt,JpushService,StringUtil) {
             $scope.$on('$ionicView.enter', function (scopes, states) {
                 if ($scope.loaded && !$rootScope.mineReload) {
                     return;
                 }
-                $scope.loaded = true;
-                $rootScope.mineReload = false;
-                $scope.is_login = 0;
-                $rootScope.ismeLogin(function () {
+                $scope.loaded=true;
+                $rootScope.mineReload=false;
+                $scope.is_login=0;
+                $rootScope.ismeLogin(function(){
                     $scope.init();
                 });
             });
             $scope.init = function () {
-                $scope.is_login = 1;
-                ClientOpt.opt({ act: 'setting', op: 'index' }, function (json) {
+                $scope.is_login=1;
+                ClientOpt.opt({act: 'setting', op: 'index'}, function (json) {
                     //console.log(json);
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
@@ -1028,22 +1038,22 @@ angular.module('mobistore.controllers', [])
                     }
                 });
             };
-            $scope.logout = function () {
-                MyDialog.confirm("退出提示", "确定要注销登录吗？", "确定了", "不了", function () {
-                    ClientOpt.opt({ act: 'setting', op: 'logout' }, function (json) {
+            $scope.logout=function(){
+                MyDialog.confirm("退出提示","确定要注销登录吗？","确定了","不了",function () {
+                    ClientOpt.opt({act: 'setting', op: 'logout'}, function (json) {
                         if (!StringUtil.isEmpty(json.datas.error)) {
                             MyDialog.error(json.datas.error);
                         }
                         else {
                             localStorage.removeItem('token');
                             localStorage.removeItem('rongcloud_token');
-                            $rootScope.rongcloud_token = null;
+                            $rootScope.rongcloud_token=null;
                             JpushService.clearAlias();
                             JpushService.clearTags();
                             $ionicHistory.clearCache();
                             MyDialog.tip("成功退出！");
                             $rootScope.gobackPage("/tab/home");
-                            $rootScope.mineReload = true;
+                            $rootScope.mineReload=true;
                         }
                     });
                 });
@@ -1063,30 +1073,25 @@ angular.module('mobistore.controllers', [])
             });
             $scope.init = function () {
                 var rootEle = $scope.rootEle;
-                $scope.loadgoodsdetail();
+                $scope.loadseriesdetail();
             };
-            $scope.loadgoodsdetail = function () {
+            $scope.loadseriesdetail = function() {
                 var url = $location.url().split("/");
                 //console.log(url);
-                $scope.goods_id = url[2];
-                console.log($scope.goods_id);
+                $scope.series_id = url[2];
+                console.log($scope.series_id);
                 ClientOpt.opt({
-                    act: 'goods',
-                    op: 'goods_detail',
-                    goods_id: $scope.goods_id
+                    act:  'goods',
+                    op:  'get_seriesdetail',
+                    series_id: $scope.series_id
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        console.log(json);
-                        $scope.goods_info = json.datas.goods_info;
-                        $scope.goods_price = json.datas.goods_info.goods_price;
-                        if ($scope.goods_pay_price > 0) {
-                            $scope.goods_info.goods_pay_price = $scope.goods_pay_price;
-                            $scope.isSelect = true;
-                            $scope.tehui = true;
-                        }
+                        console.log(json.datas.series_info);
+                        $scope.series_picture = json.datas.series_info.series_picture;
+                        $scope.series_id = json.datas.series_info.series_id;
                     }
                 });
             };
@@ -1104,6 +1109,7 @@ angular.module('mobistore.controllers', [])
             });
             $scope.init = function () {
                 $scope.loadgoodsdetail();
+                $scope.loadseriescommon();
                 var rootEle = $scope.rootEle;
                 $(rootEle).find(".aw_nav_list li").click(function (event) {
                     var index = $(this).index();
@@ -1111,12 +1117,12 @@ angular.module('mobistore.controllers', [])
                     $(rootEle).find(".aw_title").eq(index).addClass("aw_curr").siblings(".aw_title").removeClass("aw_curr");
                 })
             };
-            $scope.loadgoodsdetail = function () {
+            $scope.loadgoodsdetail = function() {
                 var url = $location.url().split("/");
                 $scope.goods_id = url[2];
                 ClientOpt.opt({
-                    act: 'goods',
-                    op: 'goods_detail',
+                    act:  'goods',
+                    op:  'goods_detail',
                     goods_id: $scope.goods_id
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
@@ -1125,41 +1131,60 @@ angular.module('mobistore.controllers', [])
                     else {
                         $scope.goods_info = json.datas.goods_info;
                         $scope.goods_price = json.datas.goods_info.goods_price;
-                        if ($scope.goods_pay_price > 0) {
+                        if($scope.goods_pay_price > 0){
                             $scope.goods_info.goods_pay_price = $scope.goods_pay_price;
-                            $scope.isSelect = true;
-                            $scope.tehui = true;
+                            $scope.isSelect=true;
+                            $scope.tehui=true;
                         }
                     }
                 });
             };
+            $scope.loadseriescommon = function() {
+                var url = $location.url().split("/");
+                //console.log(url);
+                $scope.series_id = url[2];
+                console.log($scope.series_id);
+                ClientOpt.opt({
+                    act:  'goods',
+                    op:  'get_seriescommon',
+                    series_id: $scope.series_id
+                }, function (json) {
+                    if (!StringUtil.isEmpty(json.datas.error)) {
+                        MyDialog.tip(json.datas.error);
+                    }
+                    else {
+                        console.log(json);
+                        $scope.goods_id = json.datas.goods_info.goods_id;
+                    }
+                });
+            }
         }])
-    .controller('GoodsdetailCtrl', ['$rootScope', '$scope', '$state', '$location', '$timeout', '$ionicHistory', '$ionicModal', '$ionicPopover', '$cordovaBarcodeScanner', 'Util', 'StringUtil', 'ClientOpt', 'MyDialog', '$sce', 'Constant',
-        function ($rootScope, $scope, $state, $location, $timeout, $ionicHistory, $ionicModal, $ionicPopover, $cordovaBarcodeScanner, Util, StringUtil, ClientOpt, MyDialog, $sce, Constant) {
-            $scope.goods_id = $state.params.goods_id;
-            $scope.goods_price = $state.params.goods_price;
-            $scope.getLocalTime = Util.getLocalTime;
-            $scope.selectSpecText = "请选择商品规格";
-            $scope.isSelect = false;
-            $scope.select_spec = [];
-            $scope.is_refresh = 1;
-            $scope.tehui = false;
+    .controller('GoodsdetailCtrl', ['$rootScope', '$scope', '$state', '$location', '$timeout', '$ionicHistory', '$ionicModal', '$ionicPopover', '$cordovaBarcodeScanner','Util', 'StringUtil', 'ClientOpt', 'MyDialog','$sce','Constant',
+        function ($rootScope, $scope, $state, $location, $timeout, $ionicHistory, $ionicModal, $ionicPopover,$cordovaBarcodeScanner, Util, StringUtil, ClientOpt, MyDialog,$sce,Constant) {
+            $scope.goods_id=$state.params.goods_id;
+            $scope.goods_price=$state.params.goods_price;
+            $scope.getLocalTime=Util.getLocalTime;
+            $scope.selectSpecText="请选择商品规格";
+            $scope.isSelect=false;
+            $scope.select_spec=[];
+            $scope.is_refresh=1;
+            $scope.tehui=false;
             $scope.$on('$ionicView.enter', function (scopes, states) {
-                $scope.rootEle = $("#goodsdetail[nav-view='active']");
+                $scope.rootEle=$("#goodsdetail[nav-view='active']");
                 if ($scope.loaded) {
                     return;
                 }
-                $scope.loaded = true;
+                $scope.loaded=true;
                 $scope.init();
             });
-            $scope.doRefresh = function () {
+            $scope.doRefresh=function(){
                 $scope.init();
                 $scope.$broadcast('scroll.refreshComplete');
             };
-            $scope.loadgoodsdetail = function () {
+            $scope.loadgoodsdetail = function() {
                 ClientOpt.opt({
-                    act: 'goods',
-                    op: 'goods_detail',
+                    act:  'goods',
+                    op:  'goods_detail',
                     goods_id: $scope.goods_id
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
@@ -1168,76 +1193,76 @@ angular.module('mobistore.controllers', [])
                     else {
                         $scope.goods_info = json.datas.goods_info;
                         $scope.goods_price = json.datas.goods_info.goods_price;
-                        if ($scope.goods_pay_price > 0) {
+                        if($scope.goods_pay_price > 0){
                             $scope.goods_info.goods_pay_price = $scope.goods_pay_price;
-                            $scope.isSelect = true;
-                            $scope.tehui = true;
+                            $scope.isSelect=true;
+                            $scope.tehui=true;
                         }
                     }
                 });
             };
-            $scope.gotobuy = function () {
-                $rootScope.isLogin(function () {
-                    var order_amounts = $($scope.rootEle).find(".buy_num").text();
-                    var pay_price = $($scope.rootEle).find(".ge_n_price").text();
+            $scope.gotobuy=function(){
+                $rootScope.isLogin(function(){
+                    var order_amounts =$($scope.rootEle).find(".buy_num").text();
+                    var pay_price =$($scope.rootEle).find(".ge_n_price").text();
                     // var size =$($scope.rootEle).find(".buy_num").text();
                     // var color =$($scope.rootEle).find(".buy_num").text();
-                    var size = 'L';
-                    var color = "黑色";
-                    if ($scope.tehui) {
-                        if ($scope.goods_info.is_buy == 1) {
+                    var size ='L';
+                    var color ="黑色";
+                    if($scope.tehui){
+                        if($scope.goods_info.is_buy == 1){
                             //$rootScope.gotoPage('/order_confirm/3/'+$scope.goods_info.goods_id+'/'+$scope.goods_pay_price);
-                            $rootScope.gotoPage('/order_confirm/3/' + $scope.goods_info.goods_id + '/');
+                            $rootScope.gotoPage('/order_confirm/3/'+$scope.goods_info.goods_id+'/');
                         }
-                        else {
+                        else{
                             MyDialog.tip("没有达到指定会员等级");
                         }
                     }
-                    else {
-                        if ($scope.goods_info.spec_group) {
+                    else{
+                        if($scope.goods_info.spec_group){
                             $scope.tobuy(1);
                             $scope.buy_type = 2;
-                            $rootScope.gotoPage('/order_confirm/2/' + $scope.goods_info.goods_id + '/' + order_amounts + '/' + pay_price + '/' + size + '/' + color + '/');
+                            $rootScope.gotoPage('/order_confirm/2/'+$scope.goods_info.goods_id+'/'+order_amounts+'/'+pay_price+'/'+size+'/'+color+'/');
                         }
-                        else {
-                            $rootScope.gotoPage('/order_confirm/2/' + $scope.goods_info.goods_id + '/' + order_amounts + '/' + pay_price + '/' + size + '/' + color + '/');
+                        else{
+                            $rootScope.gotoPage('/order_confirm/2/'+$scope.goods_info.goods_id+'/'+order_amounts+'/'+pay_price+'/'+size+'/'+color+'/');
                         }
                     }
-                }, true);
+                },true);
             };
-            $scope.ontouch = function () {
-                $scope.startTime = Date.parse(new Date());
+            $scope.ontouch=function(){
+                $scope.startTime=Date.parse(new Date());
             };
-            $scope.onrelease = function () {
-                $scope.endTime = Date.parse(new Date());
-                if ($scope.endTime - $scope.startTime > 2000 && $scope.goods_info.is_buy == 1 && !$scope.tehui) {
+            $scope.onrelease=function(){
+                $scope.endTime=Date.parse(new Date());
+                if($scope.endTime - $scope.startTime > 2000 && $scope.goods_info.is_buy == 1 && !$scope.tehui){
                     event.stopPropagation();
-                    $rootScope.isLogin(function () {
-                        if ($scope.goods_info.spec_group) {
+                    $rootScope.isLogin(function(){
+                        if($scope.goods_info.spec_group){
                             $scope.tobuy(1);
                             $scope.buy_type = 3;
                         }
-                        else {
-                            $rootScope.gotoPage('/order_confirm/3/' + $scope.goods_info.goods_id + '/');
+                        else{
+                            $rootScope.gotoPage('/order_confirm/3/'+$scope.goods_info.goods_id+'/');
                         }
-                    }, true);
+                    },true);
                 }
             };
-            $scope.move2car = function () {
-                $rootScope.isLogin(function () {
+            $scope.move2car=function () {
+                $rootScope.isLogin(function(){
                     $scope.buy_type = 1;
-                    if ($scope.goods_info.spec_group) {
+                    if($scope.goods_info.spec_group){
                         $scope.tobuy(1);
                     }
-                    else {
+                    else{
                         $scope.isSelect = true;
                         $scope.sure_tobuy();
                     }
-                }, true);
+                },true);
             };
-            $scope.sure_tobuy = function () {
+            $scope.sure_tobuy = function(){
                 $scope.tobuy(0);
-                if ($scope.buy_type == 1 && $scope.isSelect) {
+                if($scope.buy_type == 1 && $scope.isSelect){
                     ClientOpt.opt({
                         act: 'jieorder',
                         op: 'addGoodsToYorder',
@@ -1254,19 +1279,19 @@ angular.module('mobistore.controllers', [])
                         }
                     });
                 }
-                else if ($scope.buy_type == 2 && $scope.isSelect) {
-                    $rootScope.gotoPage('/order_confirm/2/' + $scope.goods_info.goods_id + '/');
+                else if($scope.buy_type == 2 && $scope.isSelect){
+                    $rootScope.gotoPage('/order_confirm/2/'+$scope.goods_info.goods_id+'/');
                 }
-                else if ($scope.buy_type == 3 && $scope.isSelect) {
-                    $rootScope.gotoPage('/order_confirm/3/' + $scope.goods_info.goods_id + '/');
+                else if($scope.buy_type == 3 && $scope.isSelect){
+                    $rootScope.gotoPage('/order_confirm/3/'+$scope.goods_info.goods_id+'/');
                 }
             };
-            $scope.toMainBigPic = function (pos, div) {
-                var rootEle = $scope.rootEle;
+            $scope.toMainBigPic = function (pos,div) {
+                var rootEle=$scope.rootEle;
                 var pswpElement = $(rootEle).find('.pswp').get(0);
                 var items = [];
                 var getItems = function () {
-                    var aDiv = $(rootEle).find("#" + div);
+                    var aDiv = $(rootEle).find("#"+div);
                     for (var i = 0; i < aDiv.find("img").length; i++) {
                         var img = aDiv.find("img");
                         var item = {
@@ -1290,45 +1315,45 @@ angular.module('mobistore.controllers', [])
                 var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
                 gallery.init();
             };
-            $scope.init = function () {
-                var rootEle = $scope.rootEle;
+            $scope.init=function(){
+                var rootEle=$scope.rootEle;
                 $scope.loadgoodsdetail();
-                $(rootEle).find(".addb").scroll(function () {
+                $(rootEle).find(".addb").scroll(function() {
                     $scope.thisDiv = this;
                     var scrollTop = $(this).scrollTop();
-                    if (scrollTop < 10) {
-                        $scope.is_refresh = 1;
-                    } else {
-                        $scope.is_refresh = 0;
+                    if( scrollTop<10){
+                        $scope.is_refresh=1;
+                    }else{
+                        $scope.is_refresh=0;
                     }
                     $scope.$apply();
-                    if (scrollTop < 44) {
+                    if (scrollTop<44){
                         $(rootEle).find(".hua_toggle").slideDown(100);
-                    } else {
+                    }else{
                         $(rootEle).find(".hua_toggle").slideUp(100);
                     }
-                    if (scrollTop < 600) {
+                    if (scrollTop<600){
                         $(rootEle).find(".back_top").slideUp(100);
-                    } else {
+                    }else{
                         $(rootEle).find(".back_top").slideDown(100);
                     }
                 })
-                $(rootEle).find(".addc").scroll(function () {
+                $(rootEle).find(".addc").scroll(function() {
                     $scope.thisDiv = this;
                     var scrollTop = $(this).scrollTop();
-                    if (scrollTop < 10) {
-                        $scope.is_refresh = 1;
-                    } else {
-                        $scope.is_refresh = 0;
+                    if( scrollTop<10){
+                        $scope.is_refresh=1;
+                    }else{
+                        $scope.is_refresh=0;
                     }
                     $scope.$apply();
-                    if (scrollTop < 600) {
+                    if (scrollTop<600){
                         $(rootEle).find(".back_top").slideUp(100);
-                    } else {
+                    }else{
                         $(rootEle).find(".back_top").slideDown(100);
                     }
                 })
-                $(rootEle).find(".back_top").click(function () {
+                $(rootEle).find(".back_top").click(function() {
                     $($scope.thisDiv).scrollTop(0);
                 })
             };
@@ -1339,44 +1364,30 @@ angular.module('mobistore.controllers', [])
                 $($scope.rootEle).find(".ge_n_price").text($scope.goods_price);
             };
             $scope.hhide = function () {
-                $($scope.rootEle).find(".ge_hei_box").removeClass("hshow");
+                $($scope.rootEle).find(".ge_hei_box").addClass("hhide");
             };
-            $scope.csize = false;
-            $scope.ccolor=false;
-            $scope.s_size = function () {
-                if ($scope.csize)
-                    $scope.csize = false;
-                else
-                    $scope.csize = true;
-            }
-            $scope.s_color = function () {
-                if ($scope.ccolor)
-                    $scope.ccolor = false;
-                else
-                    $scope.ccolor = true;
-            }
-            $scope.addnum = function (goods_price) {
+            $scope.addnum=function(goods_price){
                 console.log(goods_price);
-                var goods_num = $($scope.rootEle).find(".buy_num").text();
-                $($scope.rootEle).find(".buy_num").text(parseInt(goods_num) + 1);
-                var order_amount = (parseInt(goods_num) + 1) * parseFloat(goods_price);
+                var goods_num=$($scope.rootEle).find(".buy_num").text();
+                $($scope.rootEle).find(".buy_num").text(parseInt(goods_num)+1);
+                var order_amount=(parseInt(goods_num)+1)*parseFloat(goods_price);
                 $($scope.rootEle).find(".ge_n_price").text(parseFloat(order_amount));
                 //$scope.loadcouponlist($scope.order_amount);
             };
-            $scope.reducenum = function (goods_price) {
-                var goods_num = $($scope.rootEle).find(".buy_num").text();
+            $scope.reducenum=function(goods_price){
+                var goods_num=$($scope.rootEle).find(".buy_num").text();
                 if (parseInt(goods_num) <= 1) {
                     return false;
                 }
-                $($scope.rootEle).find(".buy_num").text(parseInt(goods_num) - 1);
-                var order_amount = (parseInt(goods_num) - 1) * parseFloat(goods_price);
-                $($scope.rootEle).find(".ge_n_price").text('￥' + parseFloat(order_amount));
+                $($scope.rootEle).find(".buy_num").text(parseInt(goods_num)-1);
+                var order_amount=(parseInt(goods_num)-1)*parseFloat(goods_price);
+                $($scope.rootEle).find(".ge_n_price").text('￥'+ parseFloat(order_amount));
             };
-            $scope.loadcouponlist = function (order_amount) {
-                $scope.so_order_amount = order_amount;
+            $scope.loadcouponlist=function(order_amount){
+                $scope.so_order_amount=order_amount;
                 ClientOpt.opt({
-                    act: 'setting',
-                    op: 'get_coupon_list',
+                    act:  'setting',
+                    op:  'get_coupon_list',
                     type: 1,
                     order_amount: order_amount
                 }, function (json) {
@@ -1392,20 +1403,20 @@ angular.module('mobistore.controllers', [])
                         // else{
                         //     $scope.couponText="没有优惠卷可用";
                         // }
-                        $scope.couponText = "没有优惠卷可用";
+                        $scope.couponText="没有优惠卷可用";
                     }
                 });
             };
-            $scope.share = function () {
-                $rootScope.isLogin(function () {
+            $scope.share=function(){
+                $rootScope.isLogin(function(){
                     $scope.init();
                     $($scope.rootEle).find("#share").removeClass("hide");
-                }, true);
+                },true);
             };
-            $scope.share_x = function () {
+            $scope.share_x=function(){
                 $($scope.rootEle).find("#share").addClass("hide");
             };
-            $scope.sharewx = function (type) {
+            $scope.sharewx = function(type) {
                 $scope.share_x();
                 var t = parseInt(type);
                 Wechat.isInstalled(function (installed) {
@@ -1414,7 +1425,7 @@ angular.module('mobistore.controllers', [])
                         return false
                     }
                 }, function (reason) {
-                    MyDialog.tip('Failed' + reason);
+                    MyDialog.tip('Failed'+ reason);
                 });
                 Wechat.share({
                     message: {
@@ -1423,7 +1434,7 @@ angular.module('mobistore.controllers', [])
                         thumb: $scope.goods_info.thumb,
                         media: {
                             type: Wechat.Type.WEBPAGE,
-                            webpageUrl: "http://mall.apin.com.cn/weixinb/index.php?act=goods&op=goods&store_id=" + $scope.goods_info.store_id + "&goods_id=" + $scope.goods_id + "&cross_sn=" + $scope.goods_info.cross_sn
+                            webpageUrl: "http://mall.apin.com.cn/weixinb/index.php?act=goods&op=goods&store_id="+$scope.goods_info.store_id+"&goods_id="+$scope.goods_id+"&cross_sn="+$scope.goods_info.cross_sn
                         }
                     },
                     scene: t
@@ -1436,7 +1447,7 @@ angular.module('mobistore.controllers', [])
                 });
             };
             //Zhen.Liu
-            $scope.poster = function () {
+            $scope.poster=function() {
                 ClientOpt.opt({
                     act: 'goods',
                     op: 'createQRCode',
@@ -1450,14 +1461,14 @@ angular.module('mobistore.controllers', [])
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        if (!StringUtil.isEmpty(json.datas.qrcodeUrl)) {
+                        if(!StringUtil.isEmpty(json.datas.qrcodeUrl)){
                             Wechat.isInstalled(function (installed) {
                                 if (!installed) {
                                     MyDialog.tip("尚未安装微信");
                                     return false
                                 }
                             }, function (reason) {
-                                MyDialog.tip('Failed' + reason);
+                                MyDialog.tip('Failed'+ reason);
                             });
                             Wechat.share({
                                 message: {
@@ -1535,8 +1546,8 @@ angular.module('mobistore.controllers', [])
             //        }
             //    );
             //}
-            $scope.collect = function () {
-                $rootScope.isLogin(function () {
+            $scope.collect = function(){
+                $rootScope.isLogin(function(){
                     ClientOpt.opt({
                         act: 'goods',
                         op: 'save_follow_goods',
@@ -1546,14 +1557,14 @@ angular.module('mobistore.controllers', [])
                             MyDialog.tip(json.datas.error);
                         }
                         else {
-                            $scope.goods_info.is_follow = json.datas.is_follow;
+                            $scope.goods_info.is_follow=json.datas.is_follow;
                             MyDialog.tip(json.datas.msg);
                         }
                     });
-                }, true);
+                },true);
             };
-            $scope.follow = function () {
-                $rootScope.isLogin(function () {
+            $scope.follow = function(){
+                $rootScope.isLogin(function(){
                     ClientOpt.opt({
                         act: 'goods',
                         op: 'save_follow_member',
@@ -1564,22 +1575,22 @@ angular.module('mobistore.controllers', [])
 
                         }
                         else {
-                            $rootScope.mineReload = true;
+                            $rootScope.mineReload=true;
                             MyDialog.tip("关注成功！");
                         }
                     });
-                }, true);
+                },true);
             };
-            $scope.goly = function () {
+            $scope.goly = function(){
                 $($scope.rootEle).find('#message').val("");
                 $($scope.rootEle).find('#buy').hide();
                 $($scope.rootEle).find('#ly').show();
             };
-            $scope.hidely = function () {
+            $scope.hidely = function(){
                 $($scope.rootEle).find('#ly').hide();
                 $($scope.rootEle).find('#buy').show();
             };
-            $scope.sendmessage = function () {
+            $scope.sendmessage = function(){
                 $($scope.rootEle).find('#ly').hide();
                 $($scope.rootEle).find('#buy').show();
                 ClientOpt.opt({
@@ -1596,33 +1607,33 @@ angular.module('mobistore.controllers', [])
                     }
                 });
             };
-            $scope.tobuy = function (a) {
-                if (a == 0) {
+            $scope.tobuy=function(a){
+                if(a==0){
                     $($scope.rootEle).find('.tobuy').hide();
-                } else {
+                }else{
                     $($scope.rootEle).find('.tobuy').show();
                 }
             };
-            $scope.canshu = function (a) {
-                if (a == 0) {
+            $scope.canshu=function(a){
+                if(a==0){
                     $($scope.rootEle).find('.canshu').hide();
-                } else {
+                }else{
                     $($scope.rootEle).find('.canshu').show();
                 }
             };
-            $scope.hua_toggle = function () {
+            $scope.hua_toggle=function(){
                 $($scope.rootEle).find('.hua_toggle').hide();
             };
-            $scope.toggle_detail = function (d) {
-                var rootEle = $scope.rootEle;
+            $scope.toggle_detail=function(d){
+                var rootEle=$scope.rootEle;
                 $(rootEle).find(".back_top").hide();
-                if (d == 0) {
+                if(d==0){
                     $(rootEle).find('.hz_contaner.cur .hz_menu_list li').removeClass("cur");
                     $(rootEle).find('.hz_contaner.cur .hz_menu_list li').eq(0).addClass("cur");
                     $(rootEle).find(".addb").show();
                     $(rootEle).find(".addc").hide();
                     $(rootEle).find('.footer').show();
-                } else {
+                }else{
                     $(rootEle).find('.footer').hide();
                     $(rootEle).find('.hua_toggle').hide();
                     $(rootEle).find('.hz_contaner.cur .hz_menu_list li').removeClass("cur");
@@ -1631,42 +1642,42 @@ angular.module('mobistore.controllers', [])
                     $(rootEle).find(".addc").show();
                 }
             };
-            $scope.selectSpec = function (index, s) {
+            $scope.selectSpec=function(index,s){
                 $scope.select_spec.splice(index, 1, s);
-                $scope.selectSpecText = "已经选择 " + $scope.select_spec.join(' ');
-                if ($scope.select_spec.length == $scope.goods_info.spec_group.length) {
-                    var goods_spec = $scope.select_spec.join(' ');
-                    var g = $scope.goods_info.goods_spec[goods_spec];
-                    $scope.goods_info.goodsImages = g.goodsImages;
-                    $scope.goods_info.goods_id = g.goods_id;
-                    $scope.goods_info.goods_name = g.goods_name;
-                    $scope.goods_info.goods_image_url = g.goods_image_url;
-                    $scope.goods_info.goods_price = g.goods_price;
-                    $scope.goods_info.goods_pay_price = g.goods_pay_price;
-                    $scope.goods_info.goods_factory_storage = g.goods_factory_storage;
-                    $scope.isSelect = true;
+                $scope.selectSpecText="已经选择 " + $scope.select_spec.join(' ');
+                if($scope.select_spec.length==$scope.goods_info.spec_group.length){
+                    var goods_spec=$scope.select_spec.join(' ');
+                    var g=$scope.goods_info.goods_spec[goods_spec];
+                    $scope.goods_info.goodsImages=g.goodsImages;
+                    $scope.goods_info.goods_id=g.goods_id;
+                    $scope.goods_info.goods_name=g.goods_name;
+                    $scope.goods_info.goods_image_url=g.goods_image_url;
+                    $scope.goods_info.goods_price=g.goods_price;
+                    $scope.goods_info.goods_pay_price=g.goods_pay_price;
+                    $scope.goods_info.goods_factory_storage= g.goods_factory_storage;
+                    $scope.isSelect=true;
                 }
             };
-            $scope.checkCur = function (s) {
-                if ($.inArray(s, $scope.select_spec) == -1) {
+            $scope.checkCur=function(s){
+                if($.inArray(s,$scope.select_spec) == -1){
                     return false;
                 }
-                else {
+                else{
                     return true;
                 }
             }
         }])
-    .controller('0rder_confirmCtrl', ['$rootScope', '$scope', '$state', '$ionicHistory', '$location', '$ionicModal', '$ionicNativeTransitions', '$filter', 'MyDialog', 'ClientOpt', 'StringUtil', 'Util',
-        function ($rootScope, $scope, $state, $ionicHistory, $location, $ionicModal, $ionicNativeTransitions, $filter, MyDialog, ClientOpt, StringUtil, Util) {
-            $scope.type = $state.params.type;
-            $scope.id = $state.params.id;
-            $scope.goods_pay_price = $state.params.goods_pay_price;
-            $scope.submitting_flag = false;
-            $scope.address_info = {};
-            $scope.order_submit = {};
-            $scope.coupon_show = false;
-            $scope.couponIds = [];
-            $scope.min_amount = 0;
+    .controller('0rder_confirmCtrl', ['$rootScope', '$scope', '$state', '$ionicHistory', '$location', '$ionicModal','$ionicNativeTransitions','$filter','MyDialog','ClientOpt','StringUtil','Util',
+        function ($rootScope, $scope, $state, $ionicHistory, $location, $ionicModal,$ionicNativeTransitions,$filter,MyDialog,ClientOpt,StringUtil,Util) {
+            $scope.type=$state.params.type;
+            $scope.id=$state.params.id;
+            $scope.goods_pay_price=$state.params.goods_pay_price;
+            $scope.submitting_flag=false;
+            $scope.address_info={};
+            $scope.order_submit={};
+            $scope.coupon_show=false;
+            $scope.couponIds=[];
+            $scope.min_amount=0;
             //url参数
             var url = $location.url().split("/");
             //console.log(url);
@@ -1676,29 +1687,29 @@ angular.module('mobistore.controllers', [])
             $scope.color = decodeURI(url[7]);    //decodeURI解决中文乱码
             //console.log($scope.color);
             $scope.$on('$ionicView.enter', function (scopes, states) {
-                $scope.rootEle = $("#order_confirm[nav-view='active']");
-                $rootScope.isLogin(function () {
+                $scope.rootEle=$("#order_confirm[nav-view='active']");
+                $rootScope.isLogin(function(){
                     $scope.init();
-                }, true);
+                },true);
             });
-            $scope.init = function () {
-                if ($scope.type == 1) {
+            $scope.init=function(){
+                if ($scope.type ==  1) {
                     $scope.loadyorderlist();
                 }
-                else if ($scope.type == 2) {
+                else if($scope.type ==  2){
                     $scope.loadgoodsinfo();
                 }
-                else if ($scope.type == 3) {
+                else if($scope.type ==  3){
                     $scope.loadgoodsinfo();
                 }
                 $scope.loadcustomeraddress();
             };
-            $scope.addnum = function (goods) {
+            $scope.addnum=function(goods){
                 event.stopPropagation();
-                if (goods.yorder_goods_id) {
+                if(goods.yorder_goods_id){
                     ClientOpt.opt({
-                        act: 'jieorder',
-                        op: 'modify_goods_num',
+                        act:  'jieorder',
+                        op:  'modify_goods_num',
                         type: 'add',
                         yorder_goods_id: goods.yorder_goods_id
                     }, function (json) {
@@ -1710,16 +1721,16 @@ angular.module('mobistore.controllers', [])
                         }
                     });
                 }
-                else {
-                    var goods_num = $($scope.rootEle).find(".buy_num").text();
-                    $($scope.rootEle).find(".buy_num").text(parseInt(goods_num) + 1);
-                    $scope.order_amount = (parseInt(goods_num) + 1) * parseFloat(goods.goods_pay_price);
+                else{
+                    var goods_num=$($scope.rootEle).find(".buy_num").text();
+                    $($scope.rootEle).find(".buy_num").text(parseInt(goods_num)+1);
+                    $scope.order_amount=(parseInt(goods_num)+1)*parseFloat(goods.goods_pay_price);
                     $scope.loadcouponlist($scope.order_amount);
                 }
             };
-            $scope.reducenum = function (goods) {
+            $scope.reducenum=function(goods){
                 event.stopPropagation();
-                if (goods.yorder_goods_id) {
+                if(goods.yorder_goods_id) {
                     if (parseInt(goods.goods_num) <= 1) {
                         return false;
                     }
@@ -1737,20 +1748,20 @@ angular.module('mobistore.controllers', [])
                         }
                     });
                 }
-                else {
-                    var goods_num = $($scope.rootEle).find(".buy_num").text();
+                else{
+                    var goods_num=$($scope.rootEle).find(".buy_num").text();
                     if (parseInt(goods_num) <= 1) {
                         return false;
                     }
-                    $($scope.rootEle).find(".buy_num").text(parseInt(goods_num) - 1);
-                    $scope.order_amount = (parseInt(goods_num) - 1) * parseFloat(goods.goods_pay_price);
+                    $($scope.rootEle).find(".buy_num").text(parseInt(goods_num)-1);
+                    $scope.order_amount=(parseInt(goods_num)-1)*parseFloat(goods.goods_pay_price);
                     $scope.loadcouponlist($scope.order_amount);
                 }
             };
-            $scope.loadgoodsinfo = function () {
+            $scope.loadgoodsinfo=function(){
                 ClientOpt.opt({
-                    act: 'goods',
-                    op: 'goods_info',
+                    act:  'goods',
+                    op:  'goods_info',
                     goods_id: $scope.id,
                     type: $scope.type
                 }, function (json) {
@@ -1758,9 +1769,9 @@ angular.module('mobistore.controllers', [])
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $scope.yorder_list = [];
+                        $scope.yorder_list=[];
                         $scope.goods_info = json.datas.goods_info;
-                        if ($scope.goods_pay_price > 0) {
+                        if($scope.goods_pay_price > 0){
                             $scope.goods_info.goods_pay_price = $scope.goods_pay_price;
                         }
                         $scope.goods_info['goods_num'] = 1;
@@ -1774,8 +1785,8 @@ angular.module('mobistore.controllers', [])
                     }
                 });
             };
-            $scope.loadyorderlist = function () {
-                ClientOpt.opt({ act: 'jieorder', op: 'get_buy_list', cart_id: $scope.id }, function (json) {
+            $scope.loadyorderlist=function(){
+                ClientOpt.opt({act: 'jieorder', op: 'get_buy_list',cart_id: $scope.id}, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
                     }
@@ -1786,10 +1797,10 @@ angular.module('mobistore.controllers', [])
                     }
                 });
             };
-            $scope.loadcustomeraddress = function () {
+            $scope.loadcustomeraddress=function(){
                 ClientOpt.opt({
-                    act: 'customer_address',
-                    op: 'address_info'
+                    act:  'customer_address',
+                    op:  'address_info'
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
@@ -1803,7 +1814,7 @@ angular.module('mobistore.controllers', [])
             $scope.hshow = function () {
                 $($scope.rootEle).find(".or_hei_box").addClass("hshow");
                 // $($scope.rootEle).find(".buy_num").text(1);
-                $scope.final_pay_price = $($scope.rootEle).find(".or_n_price").text();
+                $scope.final_pay_price =$($scope.rootEle).find(".or_n_price").text();
             };
             //支付页面为另一个页面
             // $scope.pay=function () {
@@ -1879,13 +1890,13 @@ angular.module('mobistore.controllers', [])
             // };
 
             //支付页面为弹窗
-            $scope.pay = function () {
-                if ($scope.type == 1) {
+            $scope.pay=function(){
+                if($scope.type==1){
                     Wechat.isInstalled(function (installed) {
                         if (installed) {
                             ClientOpt.opt({
-                                act: 'wxpay',
-                                op: 'pay',
+                                act:  'wxpay',
+                                op:  'pay',
                                 orderIds: $scope.orderIds,
                                 order_amount: $scope.order_amount
                             }, function (json) {
@@ -1910,16 +1921,16 @@ angular.module('mobistore.controllers', [])
                                 }
                             });
                         }
-                        else {
+                        else{
                             MyDialog.tip("尚未安装微信");
                         }
                     }, function (reason) {
                     });
                 }
-                else if ($scope.type == 2) {
+                else if($scope.type==2){
                     ClientOpt.opt({
-                        act: 'alipay',
-                        op: 'pay',
+                        act:  'alipay',
+                        op:  'pay',
                         orderIds: $scope.orderIds,
                         order_amount: $scope.order_amount
                     }, function (json) {
@@ -1928,37 +1939,37 @@ angular.module('mobistore.controllers', [])
                         }
                         else {
                             var payInfo = json.datas.info;
-                            if (payInfo) {
+                            if(payInfo){
                                 cordova.plugins.alipay.payment(payInfo,
-                                    function success() {
+                                    function success(){
                                         MyDialog.tip("支付成功");
                                         $rootScope.gotoPage('/myorder/0');
                                     },
-                                    function error(e) {
-                                        MyDialog.error("error:状态代码:" + e.resultStatus + "   返回的结果数据:" + e.result + "   提示信息:" + e.memo);
+                                    function error(e){
+                                        MyDialog.error("error:状态代码:"+e.resultStatus+"   返回的结果数据:"+e.result+"   提示信息:" + e.memo);
                                         $rootScope.gotoPage('/myorder/0');
                                     });
                             }
-                            else {
+                            else{
                                 MyDialog.error("获取签名失败");
                                 $rootScope.gotoPage('/myorder/0');
                             }
                         }
                     });
                 }
-                $rootScope.mineReload = true;
+                $rootScope.mineReload=true;
             };
-            $scope.couponFinish = function () {
+            $scope.couponFinish=function(){
                 new Swiper('#sell_juan_id', {
-                    slidesPerView: 'auto',
-                    spaceBetween: 10
+                    slidesPerView : 'auto',
+                    spaceBetween : 10
                 });
             };
-            $scope.loadcouponlist = function (order_amount) {
-                $scope.so_order_amount = order_amount;
+            $scope.loadcouponlist=function(order_amount){
+                $scope.so_order_amount=order_amount;
                 ClientOpt.opt({
-                    act: 'setting',
-                    op: 'get_coupon_list',
+                    act:  'setting',
+                    op:  'get_coupon_list',
                     type: 1,
                     order_amount: order_amount
                 }, function (json) {
@@ -1966,77 +1977,77 @@ angular.module('mobistore.controllers', [])
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $scope.coupon_list = json.datas.coupon_list;
-                        $scope.coupon_id = '';
-                        if ($scope.coupon_list.length > 0) {
-                            $scope.couponText = $scope.coupon_list.length + "  张优惠卷可用";
+                        $scope.coupon_list=json.datas.coupon_list;
+                        $scope.coupon_id='';
+                        if($scope.coupon_list.length>0){
+                            $scope.couponText=$scope.coupon_list.length+"  张优惠卷可用";
                         }
-                        else {
-                            $scope.couponText = "没有优惠卷可用";
+                        else{
+                            $scope.couponText="没有优惠卷可用";
                         }
                     }
                 });
             };
-            $scope.showCoupon = function () {
-                $scope.coupon_show = !$scope.coupon_show;
+            $scope.showCoupon=function(){
+                $scope.coupon_show=!$scope.coupon_show;
             };
-            $scope.selectcoupon = function (coupon) {
-                if ($.inArray(coupon.id, $scope.couponIds) != -1) {
+            $scope.selectcoupon=function(coupon){
+                if($.inArray(coupon.id, $scope.couponIds) != -1){
                     var index = $scope.couponIds.indexOf(coupon.id);
                     $scope.couponIds.splice(index, 1);
-                    if ($scope.couponIds.length > 0) {
-                        $scope.couponText = "已选择 " + $scope.couponIds.length + " 张优惠卷";
-                        $scope.order_amount = parseFloat($scope.order_amount) + parseFloat(coupon.coupon_amount);
-                        $scope.min_amount = parseFloat($scope.min_amount) - parseFloat(coupon.min_amount);
+                    if($scope.couponIds.length>0){
+                        $scope.couponText="已选择 "+$scope.couponIds.length+" 张优惠卷";
+                        $scope.order_amount=parseFloat($scope.order_amount)+parseFloat(coupon.coupon_amount);
+                        $scope.min_amount=parseFloat($scope.min_amount)-parseFloat(coupon.min_amount);
                     }
-                    else {
-                        $scope.couponText = $scope.coupon_list.length + "  张优惠卷可用";
-                        $scope.order_amount = $scope.so_order_amount;
-                        $scope.min_amount = 0;
+                    else{
+                        $scope.couponText=$scope.coupon_list.length+"  张优惠卷可用";
+                        $scope.order_amount=$scope.so_order_amount;
+                        $scope.min_amount=0;
                     }
                 }
-                else {
-                    if (parseFloat($scope.min_amount) + parseFloat(coupon.min_amount) > parseFloat($scope.so_order_amount)) {
+                else{
+                    if(parseFloat($scope.min_amount)+parseFloat(coupon.min_amount)>parseFloat($scope.so_order_amount)){
                         MyDialog.tip("没有满足条件使用该优惠卷");
                     }
-                    else {
+                    else{
                         $scope.couponIds.push(coupon.id);
-                        $scope.couponText = "已选择 " + $scope.couponIds.length + " 张优惠卷";
-                        $scope.order_amount = parseFloat($scope.order_amount) - parseFloat(coupon.coupon_amount);
-                        $scope.min_amount = parseFloat($scope.min_amount) + parseFloat(coupon.min_amount);
+                        $scope.couponText="已选择 "+$scope.couponIds.length+" 张优惠卷";
+                        $scope.order_amount=parseFloat($scope.order_amount)-parseFloat(coupon.coupon_amount);
+                        $scope.min_amount=parseFloat($scope.min_amount)+parseFloat(coupon.min_amount);
                     }
                 }
             };
-            $scope.checkcur = function (coupon_id) {
-                if ($.inArray(coupon_id, $scope.couponIds) == -1) {
+            $scope.checkcur=function(coupon_id){
+                if($.inArray(coupon_id, $scope.couponIds) == -1){
                     return false;
                 }
-                else {
+                else{
                     return true;
                 }
             }
         }])
-    .controller('RechargeCtrl', ['$rootScope', '$scope', '$state', '$ionicHistory', '$location', '$ionicModal', '$ionicNativeTransitions', '$filter', 'MyDialog', 'ClientOpt', 'StringUtil', 'Util', '$sce',
-        function ($rootScope, $scope, $state, $ionicHistory, $location, $ionicModal, $ionicNativeTransitions, $filter, MyDialog, ClientOpt, StringUtil, Util, $sce) {
-            $scope.orderIds = $state.params.orderIds;
-            $scope.order_amount = $state.params.order_amount;
-            $scope.type = 1;
+    .controller('RechargeCtrl', ['$rootScope', '$scope', '$state', '$ionicHistory', '$location', '$ionicModal','$ionicNativeTransitions','$filter','MyDialog','ClientOpt','StringUtil','Util','$sce',
+        function ($rootScope, $scope, $state, $ionicHistory, $location, $ionicModal,$ionicNativeTransitions,$filter,MyDialog,ClientOpt,StringUtil,Util,$sce) {
+            $scope.orderIds=$state.params.orderIds;
+            $scope.order_amount=$state.params.order_amount;
+            $scope.type=1;
             $scope.$on('$ionicView.enter', function (scopes, states) {
-                $scope.order_sn = new Date().getTime();
+                $scope.order_sn=new Date().getTime();
             });
-            $scope.goback = function () {
+            $scope.goback=function(){
                 $rootScope.gotoPage('/myorder/0');
             }
-            $scope.switch = function (type) {
-                $scope.type = type;
+            $scope.switch=function(type){
+                $scope.type=type;
             }
-            $scope.pay = function () {
-                if ($scope.type == 1) {
+            $scope.pay=function(){
+                if($scope.type==1){
                     Wechat.isInstalled(function (installed) {
                         if (installed) {
                             ClientOpt.opt({
-                                act: 'wxpay',
-                                op: 'pay',
+                                act:  'wxpay',
+                                op:  'pay',
                                 orderIds: $scope.orderIds,
                                 order_amount: $scope.order_amount
                             }, function (json) {
@@ -2061,16 +2072,16 @@ angular.module('mobistore.controllers', [])
                                 }
                             });
                         }
-                        else {
+                        else{
                             MyDialog.tip("尚未安装微信");
                         }
                     }, function (reason) {
                     });
                 }
-                else if ($scope.type == 2) {
+                else if($scope.type==2){
                     ClientOpt.opt({
-                        act: 'alipay',
-                        op: 'pay',
+                        act:  'alipay',
+                        op:  'pay',
                         orderIds: $scope.orderIds,
                         order_amount: $scope.order_amount
                     }, function (json) {
@@ -2079,44 +2090,44 @@ angular.module('mobistore.controllers', [])
                         }
                         else {
                             var payInfo = json.datas.info;
-                            if (payInfo) {
+                            if(payInfo){
                                 cordova.plugins.alipay.payment(payInfo,
-                                    function success() {
+                                    function success(){
                                         MyDialog.tip("支付成功");
                                         $rootScope.gotoPage('/myorder/0');
                                     },
-                                    function error(e) {
-                                        MyDialog.error("error:状态代码:" + e.resultStatus + "   返回的结果数据:" + e.result + "   提示信息:" + e.memo);
+                                    function error(e){
+                                        MyDialog.error("error:状态代码:"+e.resultStatus+"   返回的结果数据:"+e.result+"   提示信息:" + e.memo);
                                         $rootScope.gotoPage('/myorder/0');
                                     });
                             }
-                            else {
+                            else{
                                 MyDialog.error("获取签名失败");
                                 $rootScope.gotoPage('/myorder/0');
                             }
                         }
                     });
                 }
-                $rootScope.mineReload = true;
+                $rootScope.mineReload=true;
             }
         }])
-    .controller('WechatCtrl', ['$rootScope', '$scope', '$state', '$ionicHistory', '$location', '$ionicModal', '$ionicNativeTransitions', '$filter', 'MyDialog', 'ClientOpt', 'StringUtil', 'Constant', 'WebIMWidget',
-        function ($rootScope, $scope, $state, $ionicHistory, $location, $ionicModal, $ionicNativeTransitions, $filter, MyDialog, ClientOpt, StringUtil, Constant, WebIMWidget) {
-            $scope.goods_id = $state.params.goods_id;
-            $scope.send = {};
+    .controller('WechatCtrl', ['$rootScope', '$scope', '$state', '$ionicHistory', '$location', '$ionicModal','$ionicNativeTransitions','$filter','MyDialog','ClientOpt','StringUtil','Constant','WebIMWidget',
+        function ($rootScope, $scope, $state, $ionicHistory, $location, $ionicModal,$ionicNativeTransitions,$filter,MyDialog,ClientOpt,StringUtil,Constant,WebIMWidget) {
+            $scope.goods_id=$state.params.goods_id;
+            $scope.send={};
             $scope.$on('$ionicView.enter', function (scopes, states) {
                 if ($scope.loaded) {
                     return;
                 }
-                $scope.loaded = true;
-                $rootScope.isLogin(function () {
+                $scope.loaded=true;
+                $rootScope.isLogin(function(){
                     $scope.loadgoodsinfo();
                 });
             });
-            $scope.loadgoodsinfo = function () {
+            $scope.loadgoodsinfo=function(){
                 ClientOpt.opt({
-                    act: 'goods',
-                    op: 'goods_info',
+                    act:  'goods',
+                    op:  'goods_info',
                     goods_id: $scope.goods_id
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
@@ -2132,19 +2143,19 @@ angular.module('mobistore.controllers', [])
                     }
                 });
             }
-            function startInit() {
+            function startInit(){
                 var config = {
                     appkey: Constant.ry_appKey,
                     token: $rootScope.rongcloud_token,
                     displayConversationList: true,
-                    style: {
-                        left: 3,
-                        bottom: 3,
-                        width: 375
+                    style:{
+                        left:3,
+                        bottom:3,
+                        width:375
                     },
-                    onSuccess: function (id) {
+                    onSuccess: function(id) {
                     },
-                    onError: function (error) {
+                    onError: function(error) {
                         MyDialog.tip(error);
                         $rootScope.goback();
                     }
@@ -2184,28 +2195,28 @@ angular.module('mobistore.controllers', [])
 
             }
         }])
-    .controller('Mine_showCtrl', ['$rootScope', '$scope', '$state', '$location', '$timeout', '$ionicHistory', '$ionicModal', '$ionicPopover', '$cordovaBarcodeScanner', 'Util', 'StringUtil', 'ClientOpt', 'MyDialog', '$sce', 'Constant', '$ionicSlideBoxDelegate', '$ionicPopup', 'JpushService', '$filter', '$ionicNativeTransitions',
-        function ($rootScope, $scope, $state, $location, $timeout, $ionicHistory, $ionicModal, $ionicPopover, $cordovaBarcodeScanner, Util, StringUtil, ClientOpt, MyDialog, $sce, Constant, $ionicSlideBoxDelegate, $ionicPopup, $ionicNativeTransitions, $filter, JpushService) {
+    .controller('Mine_showCtrl', ['$rootScope', '$scope', '$state', '$location', '$timeout', '$ionicHistory', '$ionicModal', '$ionicPopover', '$cordovaBarcodeScanner', 'Util', 'StringUtil', 'ClientOpt', 'MyDialog', '$sce', 'Constant', '$ionicSlideBoxDelegate', '$ionicPopup','JpushService','$filter','$ionicNativeTransitions',
+        function ($rootScope, $scope, $state, $location, $timeout, $ionicHistory, $ionicModal, $ionicPopover, $cordovaBarcodeScanner, Util, StringUtil, ClientOpt, MyDialog, $sce, Constant, $ionicSlideBoxDelegate, $ionicPopup, $ionicNativeTransitions,$filter,JpushService) {
             $scope.$on('$ionicView.enter', function (scopes, states) {
                 if ($scope.loaded && !$rootScope.mineReload) {
                     return;
                 }
-                $scope.loaded = true;
-                $rootScope.mineReload = false;
-                $scope.is_login = 0;
-                $rootScope.isLogin(function () {
+                $scope.loaded=true;
+                $rootScope.mineReload=false;
+                $scope.is_login=0;
+                $rootScope.isLogin(function(){
                     $scope.init();
                 });
             });
-            $scope.doRefresh = function () {
-                $rootScope.isLogin(function () {
+            $scope.doRefresh=function(){
+                $rootScope.isLogin(function(){
                     $scope.init();
                 });
                 $scope.$broadcast('scroll.refreshComplete');
             };
-            $scope.init = function () {
-                $scope.is_login = 1;
-                ClientOpt.opt({ act: 'setting', op: 'index' }, function (json) {
+            $scope.init=function () {
+                $scope.is_login=1;
+                ClientOpt.opt({act: 'setting', op: 'index'}, function (json) {
                     console.log(json);
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
@@ -2345,17 +2356,17 @@ angular.module('mobistore.controllers', [])
                 })
             }
         }])
-    .controller('RegisterCtrl', ['$rootScope', '$scope', '$state', '$timeout', '$location', '$interval', '$ionicHistory', '$ionicPopup', '$ionicNativeTransitions', 'Util', 'StringUtil', 'clientSrv', 'ClientOpt', 'Constant', 'MyDialog',
-        function ($rootScope, $scope, $state, $location, $timeout, $interval, $ionicHistory, $ionicPopup, $ionicNativeTransitions, Util, StringUtil, clientSrv, ClientOpt, Constant, MyDialog) {
+    .controller('RegisterCtrl', ['$rootScope', '$scope', '$state','$timeout', '$location', '$interval', '$ionicHistory', '$ionicPopup','$ionicNativeTransitions', 'Util', 'StringUtil', 'clientSrv', 'ClientOpt','Constant','MyDialog',
+        function ($rootScope, $scope, $state, $location,$timeout, $interval, $ionicHistory, $ionicPopup, $ionicNativeTransitions,Util, StringUtil, clientSrv, ClientOpt,Constant,MyDialog) {
             var isWebView = ionic.Platform.isWebView();
-            $scope.a = "mobilemember_register";
-            $scope.o = "index";
+            $scope.a="mobilemember_register";
+            $scope.o="index";
             //$scope.img_code="";
             $scope.client = {};
             $scope.$on('$ionicView.enter', function (scopes, states) {
-                ClientOpt.opt({ act: 'login', op: 'nchash_init', a: $scope.a, o: $scope.o }, function (json) {
-                    $scope.readonly = 0;
-                    $scope.nchash = json.datas.nchash;
+                ClientOpt.opt({act: 'login', op: 'nchash_init', a: $scope.a, o: $scope.o}, function (json) {
+                    $scope.readonly=0;
+                    $scope.nchash=json.datas.nchash;
                     //$scope.refreshValidateCode();
                 });
                 //ClientOpt.opt({act: 'login', op: 'area_list'}, function (json) {
@@ -2367,7 +2378,7 @@ angular.module('mobistore.controllers', [])
                 //    }
                 //});
             });
-            $scope.signup = function () {
+            $scope.signup = function() {
                 if (StringUtil.isEmpty($scope.client.mobile) || StringUtil.isEmpty($scope.client.password)
                     || StringUtil.isEmpty($scope.client.password_confirm)) {
                     $ionicPopup.alert({
@@ -2376,7 +2387,7 @@ angular.module('mobistore.controllers', [])
                     });
                     return;
                 }
-                $scope.client.username = $scope.client.mobile;
+                $scope.client.username=$scope.client.mobile;
                 if ($scope.client.password != $scope.client.password_confirm) {
                     $ionicPopup.alert({
                         title: '两次密码不一致!',
@@ -2391,56 +2402,55 @@ angular.module('mobistore.controllers', [])
                 //    });
                 //    return;
                 //}
-                $scope.client = angular.extend($scope.client, { isWebView: isWebView, nchash: $scope.nchash });
+                $scope.client = angular.extend($scope.client, {isWebView: isWebView,nchash:$scope.nchash});
                 clientSrv.signup($scope.client);
             };
             //$scope.refreshValidateCode=function(){
             //    $scope.img_code=Constant.WebPath+"/shop/index.php?act=seccode&op=makecode&nchash="+$scope.nchash+"&ttt="+Math.random().toString(36).substr(2);
             //};
-            $scope.verifyCodeText = "获取手机验证码";
-            $scope.timeInterval = 60;
-            $scope.getVerifyCode = function () {
-                ClientOpt.opt({
-                    act: 'login', op: 'get_verify',
-                    nchash: $scope.nchash,
+            $scope.verifyCodeText="获取手机验证码";
+            $scope.timeInterval=60;
+            $scope.getVerifyCode=function(){
+                ClientOpt.opt({act: 'login', op: 'get_verify',
+                    nchash:$scope.nchash,
                     //captcha:$scope.client.img_code,
-                    phone_num: $scope.client.mobile
+                    phone_num:$scope.client.mobile
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
-                        var v = json.datas.error;
-                        if (v === "-1") {
+                        var v=json.datas.error;
+                        if(v==="-1"){
                             MyDialog.tip("验证码不正确");
-                            $scope.client.img_code = "";
+                            $scope.client.img_code="";
                             //$scope.refreshValidateCode();
                         }
-                        else if (v === "-2")
+                        else if(v==="-2")
                             MyDialog.tip("手机号码不正确");
                         else
                             MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $scope.readonly = 1;
+                        $scope.readonly=1;
                         $scope.timer = $interval(function () {
-                            if ($scope.timeInterval === 0) {
-                                $scope.timeInterval = 60;
-                                $scope.verifyCodeText = "获取手机验证码";
+                            if($scope.timeInterval===0){
+                                $scope.timeInterval=60;
+                                $scope.verifyCodeText="获取手机验证码";
                                 $interval.cancel($scope.timer);
                             }
-                            else {
-                                $scope.verifyCodeText = $scope.timeInterval + "s后重新获取";
+                            else{
+                                $scope.verifyCodeText=$scope.timeInterval+"s后重新获取";
                                 $scope.timeInterval--;
                             }
                         }, 1000);
                     }
                 });
             };
-            $scope.checkphone = function () {
+            $scope.checkphone=function(){
                 ClientOpt.opt({
-                    act: 'login',
-                    op: 'check_phone',
+                    act:  'login',
+                    op:  'check_phone',
                     phone: $scope.client.mobile
                 }, function (json) {
-                    $scope.client.cross_sn = json.datas.cross_sn;
+                    $scope.client.cross_sn=json.datas.cross_sn;
                 });
             };
             $scope.wxlogin = function () {
@@ -2485,17 +2495,17 @@ angular.module('mobistore.controllers', [])
                 });
             };
         }])
-    .controller('LoginCtrl', ['$rootScope', '$scope', '$location', '$timeout', '$ionicHistory', '$ionicPopup', '$cookies', 'Util', 'StringUtil', 'clientSrv', 'MyDialog',
-        function ($rootScope, $scope, $location, $timeout, $ionicHistory, $ionicPopup, $cookies, Util, StringUtil, clientSrv, MyDialog) {
+    .controller('LoginCtrl', ['$rootScope', '$scope', '$location', '$timeout', '$ionicHistory', '$ionicPopup','$cookies', 'Util', 'StringUtil', 'clientSrv','MyDialog',
+        function ($rootScope, $scope, $location, $timeout, $ionicHistory, $ionicPopup,$cookies, Util, StringUtil, clientSrv,MyDialog) {
             var isWebView = ionic.Platform.isWebView();
             $scope.$on('$ionicView.enter', function (scopes, states) {
                 if (window.cordova) {
                     Wechat.isInstalled(function (installed) {
                         if (installed) {
-                            $scope.haswx = true;
+                            $scope.haswx=true;
                         }
-                        else {
-                            $scope.haswx = false;
+                        else{
+                            $scope.haswx=false;
                         }
                     }, function (reason) {
                     });
@@ -2712,16 +2722,16 @@ angular.module('mobistore.controllers', [])
                 if ($scope.loaded && !$rootScope.mineReload) {
                     return;
                 }
-                $scope.loaded = true;
-                $rootScope.mineReload = false;
-                $scope.is_login = 0;
-                $rootScope.isLogin(function () {
+                $scope.loaded=true;
+                $rootScope.mineReload=false;
+                $scope.is_login=0;
+                $rootScope.isLogin(function(){
                     $scope.init();
                 });
             });
             $scope.init = function () {
-                $scope.is_login = 1;
-                ClientOpt.opt({ act: 'setting', op: 'index' }, function (json) {
+                $scope.is_login=1;
+                ClientOpt.opt({act: 'setting', op: 'index'}, function (json) {
                     //console.log(json);
                     if (!StringUtil.isEmpty(json.datas.error)) {
                         MyDialog.tip(json.datas.error);
@@ -3906,74 +3916,74 @@ angular.module('mobistore.controllers', [])
     //             $scope.loaddpjorderlist();
     //         }
     //     }])
-    .controller('MyorderCtrl', ['$rootScope', '$scope', '$state', '$ionicHistory', '$location', '$ionicModal', '$ionicNativeTransitions', '$filter', 'MyDialog', 'ClientOpt', 'StringUtil', 'Util', '$sce', '$interval',
-        function ($rootScope, $scope, $state, $ionicHistory, $location, $ionicModal, $ionicNativeTransitions, $filter, MyDialog, ClientOpt, StringUtil, Util, $sce, $interval) {
-            $scope.type = $state.params.type;
-            $scope.showbox = 0;
-            $scope.all_curpage = 0;
-            $scope.dzf_curpage = 0;
-            $scope.dfh_curpage = 0;
-            $scope.dsh_curpage = 0;
-            $scope.dpj_curpage = 0;
-            $scope.orderIds = [];
-            $scope.order_amount = 0;
-            $scope.couponText = "";
+    .controller('MyorderCtrl', ['$rootScope', '$scope', '$state', '$ionicHistory', '$location', '$ionicModal','$ionicNativeTransitions','$filter','MyDialog','ClientOpt','StringUtil','Util','$sce','$interval',
+        function ($rootScope, $scope, $state, $ionicHistory, $location, $ionicModal,$ionicNativeTransitions,$filter,MyDialog,ClientOpt,StringUtil,Util,$sce,$interval) {
+            $scope.type=$state.params.type;
+            $scope.showbox=0;
+            $scope.all_curpage=0;
+            $scope.dzf_curpage=0;
+            $scope.dfh_curpage=0;
+            $scope.dsh_curpage=0;
+            $scope.dpj_curpage=0;
+            $scope.orderIds=[];
+            $scope.order_amount=0;
+            $scope.couponText="";
             $scope.$on('$ionicView.enter', function (scopes, states) {
-                $scope.rootEle = $("#myorder[nav-view='active']");
+                $scope.rootEle=$("#myorder[nav-view='active']");
                 $scope.init();
             });
-            $scope.goback = function () {
-                $rootScope.mineReload = true;
+            $scope.goback=function(){
+                $rootScope.mineReload=true;
                 $rootScope.gotoPage('/tab/myself');
             }
-            $scope.selectcircle = function (order_id, order_amount) {
-                if ($.inArray(order_id, $scope.orderIds) != -1) {
+            $scope.selectcircle=function(order_id,order_amount){
+                if($.inArray(order_id, $scope.orderIds) != -1){
                     var index = $scope.orderIds.indexOf(order_id);
                     $scope.orderIds.splice(index, 1);
-                    $scope.order_amount -= parseFloat(order_amount);
+                    $scope.order_amount-=parseFloat(order_amount);
                 }
-                else {
+                else{
                     $scope.orderIds.push(order_id);
-                    $scope.order_amount += parseFloat(order_amount);
+                    $scope.order_amount+=parseFloat(order_amount);
                 }
                 $scope.loadcouponlist($scope.order_amount);
             }
-            $scope.checkcircle = function (order_id) {
-                if ($.inArray(order_id, $scope.orderIds) == -1) {
+            $scope.checkcircle=function(order_id){
+                if($.inArray(order_id, $scope.orderIds) == -1){
                     return false;
                 }
-                else {
+                else{
                     return true;
                 }
             }
-            $scope.selectall = function () {
-                if ($scope.orderIds.length > 0) {
-                    if ($scope.orderIds.length != $scope.dzf_order_list.length) {
-                        $scope.orderIds = [];
-                        $scope.order_amount = 0;
-                        $.each($scope.dzf_order_list, function (i, item) {
+            $scope.selectall=function(){
+                if($scope.orderIds.length>0){
+                    if($scope.orderIds.length!=$scope.dzf_order_list.length){
+                        $scope.orderIds=[];
+                        $scope.order_amount=0;
+                        $.each($scope.dzf_order_list,function(i,item){
                             $scope.orderIds.push(item.order_id);
-                            $scope.order_amount += parseFloat(item.order_amount);
+                            $scope.order_amount+=parseFloat(item.order_amount);
                         });
                     }
-                    else {
-                        $scope.orderIds = [];
-                        $scope.order_amount = 0;
+                    else{
+                        $scope.orderIds=[];
+                        $scope.order_amount=0;
                     }
                 }
-                else {
-                    $scope.order_amount = 0;
-                    $.each($scope.dzf_order_list, function (i, item) {
+                else{
+                    $scope.order_amount=0;
+                    $.each($scope.dzf_order_list,function(i,item){
                         $scope.orderIds.push(item.order_id);
-                        $scope.order_amount += parseFloat(item.order_amount);
+                        $scope.order_amount+=parseFloat(item.order_amount);
                     });
                 }
                 $scope.loadcouponlist($scope.order_amount);
             }
-            $scope.loadcouponlist = function (order_amount) {
+            $scope.loadcouponlist=function(order_amount){
                 ClientOpt.opt({
-                    act: 'setting',
-                    op: 'get_order_coupon',
+                    act:  'setting',
+                    op:  'get_order_coupon',
                     orderIds: $scope.orderIds.toString(),
                     order_amount: order_amount
                 }, function (json) {
@@ -3981,29 +3991,29 @@ angular.module('mobistore.controllers', [])
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $scope.coupon_list = json.datas.coupon_list;
-                        if ($scope.coupon_list.length > 0) {
-                            $scope.couponText = "已使用" + $scope.coupon_list.length + "张优惠卷";
+                        $scope.coupon_list=json.datas.coupon_list;
+                        if($scope.coupon_list.length>0){
+                            $scope.couponText="已使用"+$scope.coupon_list.length+"张优惠卷";
                         }
-                        else {
-                            $scope.couponText = "";
+                        else{
+                            $scope.couponText="";
                         }
-                        $scope.pay_order_amount = json.datas.order_amount;
+                        $scope.pay_order_amount=json.datas.order_amount;
                     }
                 });
             }
-            $scope.mergepay = function () {
-                if ($scope.orderIds.length > 0) {
-                    $rootScope.gotoPage("/recharge/" + $scope.orderIds.toString() + "/" + $scope.pay_order_amount);
+            $scope.mergepay=function(){
+                if($scope.orderIds.length>0){
+                    $rootScope.gotoPage("/recharge/"+$scope.orderIds.toString()+"/"+$scope.pay_order_amount);
                 }
-                else {
+                else{
                     MyDialog.tip("请选择订单");
                 }
             }
-            $scope.remindfh = function () {
+            $scope.remindfh=function(){
                 MyDialog.tip("已经提醒卖家发货，请耐心等待");
             }
-            $scope.confirmsh = function (order_id) {
+            $scope.confirmsh=function(order_id){
                 ClientOpt.opt({
                     act: 'jieorder',
                     op: 'confirm_order',
@@ -4013,46 +4023,44 @@ angular.module('mobistore.controllers', [])
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        $rootScope.mineReload = true;
+                        $rootScope.mineReload=true;
                         MyDialog.tip("确认收货成功");
                         $rootScope.gotoPage('/tab/myself');
                     }
                 });
             }
-            $scope.init = function () {
+            $scope.init=function(){
                 $scope.loadallorderlist();
                 $scope.loaddzforderlist();
                 $scope.loaddfhorderlist();
                 $scope.loaddshorderlist();
                 $scope.loaddpjorderlist();
-                var rootEle = $scope.rootEle;
-                var as = $(rootEle).find("#pagenavi_mo").find("a");
-                var tt = new TouchSlider({
-                    id: 'slider_myorder', 'auto': '-1', fx: 'ease-out', direction: 'left', speed: 500, timeout: 5000, 'before': function (index) {
-                        as[this.p].className = '';
-                        as[index].className = 'active';
-                        $scope.type = index;
-                        this.p = index;
-                    }
-                });
+                var rootEle=$scope.rootEle;
+                var as=$(rootEle).find("#pagenavi_mo").find("a");
+                var tt=new TouchSlider({id: 'slider_myorder','auto':'-1',fx:'ease-out',direction:'left',speed:500,timeout:5000,'before':function(index){
+                    as[this.p].className='';
+                    as[index].className='active';
+                    $scope.type=index;
+                    this.p=index;
+                }});
                 tt.p = $scope.type;
-                for (var i = 0; i < as.length; i++) {
-                    (function () {
-                        var j = i;
+                for(var i=0;i<as.length;i++){
+                    (function(){
+                        var j=i;
                         as[j].tt = tt;
-                        as[j].onclick = function () {
+                        as[j].onclick=function(){
                             this.tt.slide(j);
-                            $scope.type = j;
+                            $scope.type=j;
                             return false;
                         }
                     })();
                 }
                 as[$scope.type].tt.slide($scope.type);
             }
-            $scope.loadallorderlist = function () {
+            $scope.loadallorderlist=function(){
                 ClientOpt.opt({
-                    act: 'jieorder',
-                    op: 'get_order_list',
+                    act:  'jieorder',
+                    op:  'get_order_list',
                     curpage: $scope.all_curpage,
                     type: 0
                 }, function (json) {
@@ -4060,38 +4068,38 @@ angular.module('mobistore.controllers', [])
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        if ($scope.all_curpage == 0) {
-                            $scope.all_order_list = json.datas.order_list;
+                        if($scope.all_curpage==0){
+                            $scope.all_order_list=json.datas.order_list;
                         }
-                        else {
-                            $.each(json.datas.order_list, function (i, item) {
+                        else{
+                            $.each(json.datas.order_list,function(i,item){
                                 $scope.all_order_list.push(item);
                             });
                             $scope.$broadcast('scroll.infiniteScrollComplete');
                         }
-                        $scope.all_hasmore = json.hasmore;
-                        $interval(function () {
-                            $.each($scope.all_order_list, function (i, item) {
-                                $scope.all_order_list[i].re_time--;
-                                if ($scope.all_order_list[i].re_time == 0) {
-                                    $scope.all_curpage = 0;
+                        $scope.all_hasmore=json.hasmore;
+                        $interval(function(){
+                            $.each($scope.all_order_list,function(i,item){
+                                $scope.all_order_list[i].re_time --;
+                                if($scope.all_order_list[i].re_time == 0){
+                                    $scope.all_curpage=0;
                                     $scope.loadallorderlist();
                                 }
                             });
-                        }, 1000);
+                        },1000);
                     }
                 });
             }
-            $scope.couponFinish = function () {
+            $scope.couponFinish=function(){
                 new Swiper('#hongbao_id', {
-                    slidesPerView: 'auto',
-                    spaceBetween: 10
+                    slidesPerView : 'auto',
+                    spaceBetween : 10
                 });
             }
-            $scope.loaddzforderlist = function () {
+            $scope.loaddzforderlist=function(){
                 ClientOpt.opt({
-                    act: 'jieorder',
-                    op: 'get_order_list',
+                    act:  'jieorder',
+                    op:  'get_order_list',
                     curpage: $scope.dzf_curpage,
                     type: 1
                 }, function (json) {
@@ -4099,32 +4107,32 @@ angular.module('mobistore.controllers', [])
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        if ($scope.dzf_curpage == 0) {
-                            $scope.dzf_order_list = json.datas.order_list;
+                        if($scope.dzf_curpage==0){
+                            $scope.dzf_order_list=json.datas.order_list;
                         }
-                        else {
-                            $.each(json.datas.order_list, function (i, item) {
+                        else{
+                            $.each(json.datas.order_list,function(i,item){
                                 $scope.dzf_order_list.push(item);
                             });
                             $scope.$broadcast('scroll.infiniteScrollComplete');
                         }
-                        $scope.dzf_hasmore = json.hasmore;
-                        $interval(function () {
-                            $.each($scope.dzf_order_list, function (i, item) {
-                                $scope.dzf_order_list[i].re_time--;
-                                if ($scope.dzf_order_list[i].re_time == 0) {
-                                    $scope.dzf_curpage = 0;
+                        $scope.dzf_hasmore=json.hasmore;
+                        $interval(function(){
+                            $.each($scope.dzf_order_list,function(i,item){
+                                $scope.dzf_order_list[i].re_time --;
+                                if($scope.dzf_order_list[i].re_time == 0){
+                                    $scope.dzf_curpage=0;
                                     $scope.loaddzforderlist();
                                 }
                             });
-                        }, 1000);
+                        },1000);
                     }
                 });
             }
-            $scope.loaddfhorderlist = function () {
+            $scope.loaddfhorderlist=function(){
                 ClientOpt.opt({
-                    act: 'jieorder',
-                    op: 'get_order_list',
+                    act:  'jieorder',
+                    op:  'get_order_list',
                     curpage: $scope.dfh_curpage,
                     type: 2
                 }, function (json) {
@@ -4132,23 +4140,23 @@ angular.module('mobistore.controllers', [])
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        if ($scope.dfh_curpage == 0) {
-                            $scope.dfh_order_list = json.datas.order_list;
+                        if($scope.dfh_curpage==0){
+                            $scope.dfh_order_list=json.datas.order_list;
                         }
-                        else {
-                            $.each(json.datas.order_list, function (i, item) {
+                        else{
+                            $.each(json.datas.order_list,function(i,item){
                                 $scope.dfh_order_list.push(item);
                             });
                             $scope.$broadcast('scroll.infiniteScrollComplete');
                         }
-                        $scope.dfh_hasmore = json.hasmore;
+                        $scope.dfh_hasmore=json.hasmore;
                     }
                 });
             }
-            $scope.loaddshorderlist = function () {
+            $scope.loaddshorderlist=function(){
                 ClientOpt.opt({
-                    act: 'jieorder',
-                    op: 'get_order_list',
+                    act:  'jieorder',
+                    op:  'get_order_list',
                     curpage: $scope.dsh_curpage,
                     type: 3
                 }, function (json) {
@@ -4156,23 +4164,23 @@ angular.module('mobistore.controllers', [])
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        if ($scope.dsh_curpage == 0) {
-                            $scope.dsh_order_list = json.datas.order_list;
+                        if($scope.dsh_curpage==0){
+                            $scope.dsh_order_list=json.datas.order_list;
                         }
-                        else {
-                            $.each(json.datas.order_list, function (i, item) {
+                        else{
+                            $.each(json.datas.order_list,function(i,item){
                                 $scope.dsh_order_list.push(item);
                             });
                             $scope.$broadcast('scroll.infiniteScrollComplete');
                         }
-                        $scope.dsh_hasmore = json.hasmore;
+                        $scope.dsh_hasmore=json.hasmore;
                     }
                 });
             }
-            $scope.loaddpjorderlist = function () {
+            $scope.loaddpjorderlist=function(){
                 ClientOpt.opt({
-                    act: 'jieorder',
-                    op: 'get_order_list',
+                    act:  'jieorder',
+                    op:  'get_order_list',
                     curpage: $scope.dpj_curpage,
                     type: 4
                 }, function (json) {
@@ -4180,46 +4188,46 @@ angular.module('mobistore.controllers', [])
                         MyDialog.tip(json.datas.error);
                     }
                     else {
-                        if ($scope.dpj_curpage == 0) {
-                            $scope.dpj_order_list = json.datas.order_list;
+                        if($scope.dpj_curpage==0){
+                            $scope.dpj_order_list=json.datas.order_list;
                         }
-                        else {
-                            $.each(json.datas.order_list, function (i, item) {
+                        else{
+                            $.each(json.datas.order_list,function(i,item){
                                 $scope.dpj_order_list.push(item);
                             });
                             $scope.$broadcast('scroll.infiniteScrollComplete');
                         }
-                        $scope.dpj_hasmore = json.hasmore;
+                        $scope.dpj_hasmore=json.hasmore;
                     }
                 });
             }
-            $scope.loadallmore = function () {
+            $scope.loadallmore=function(){
                 $scope.all_curpage++;
                 $scope.loadallorderlist();
             }
-            $scope.loaddzfmore = function () {
+            $scope.loaddzfmore=function(){
                 $scope.dzf_curpage++;
                 $scope.loaddzforderlist();
             }
-            $scope.loaddfhmore = function () {
+            $scope.loaddfhmore=function(){
                 $scope.dfh_curpage++;
                 $scope.loaddfhorderlist();
             }
-            $scope.loaddshmore = function () {
+            $scope.loaddshmore=function(){
                 $scope.dsh_curpage++;
                 $scope.loaddshorderlist();
             }
-            $scope.loaddpjmore = function () {
+            $scope.loaddpjmore=function(){
                 $scope.dpj_curpage++;
                 $scope.loaddpjorderlist();
             }
-            $scope.pay = function (order_id, order_sn, order_amount) {
-                $rootScope.gotoPage("/recharge/" + order_id + "/" + order_amount);
+            $scope.pay=function(order_id,order_sn,order_amount){
+                $rootScope.gotoPage("/recharge/"+order_id+"/"+order_amount);
             }
-            $scope.deleteorder = function (order_id) {
+            $scope.deleteorder=function(order_id){
                 ClientOpt.opt({
-                    act: 'jieorder',
-                    op: 'delete_order',
+                    act:  'jieorder',
+                    op:  'delete_order',
                     order_id: order_id
                 }, function (json) {
                     if (!StringUtil.isEmpty(json.datas.error)) {
@@ -4231,14 +4239,14 @@ angular.module('mobistore.controllers', [])
                     }
                 });
             }
-            $scope.timetrans = function (result) {
+            $scope.timetrans=function (result) {
                 var h = Math.floor(result / 3600);
                 var m = Math.floor((result / 60 % 60));
                 var s = Math.floor((result % 60));
                 return h + " : " + m + " : " + s;
             }
-            $scope.pay_he = function (a) {
-                $scope.showbox = parseInt(a);
+            $scope.pay_he=function(a){
+                $scope.showbox=parseInt(a);
             }
         }])
     .controller('SettingCtrl', ['$rootScope', '$scope', '$state', '$ionicHistory', '$location', '$ionicModal', '$ionicNativeTransitions', '$filter', 'MyDialog', 'ClientOpt', 'StringUtil', 'Util', '$sce', 'JpushService', '$cordovaAppVersion', 'AppUpdateService',
@@ -5100,4 +5108,4 @@ angular.module('mobistore.controllers', [])
                 $scope.$broadcast('scroll.refreshComplete');
             }
         }])
-    ;
+;

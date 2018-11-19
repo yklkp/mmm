@@ -40,10 +40,10 @@
                 </div>
             </div>
             <div class="ho_box">
-                <div class="ho_list" ng-repeat="goods in selection_goods" my-repeat-finished="goodsFinish_01()">
-                    <div class="ho_img-layout" ng-click="gotoPage('/photo_show/'+goods.goods_id+'/')">
+                <div class="ho_list" ng-repeat="series in selection_series" my-repeat-finished="goodsFinish_01()">
+                    <div class="ho_img-layout" ng-click="gotoPage('/photo_show/'+series.series_id+'/')">
                         <div class="img_pro_box">
-                            <img class="img_pro_space" src="http://mall.apin.com.cn/data/upload/shop/store/goods/1714/1714_05955234866289854.jpg" alt=""/>
+                            <img class="img_pro_space" src="{{series.series_picture}}" alt=""/>
                             <!--<img class="img_pro_space" src="{{goods.goods_image}}" alt=""/>-->
                         </div>
                         <!--<div class="main_pro_box">-->

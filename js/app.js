@@ -359,12 +359,12 @@ angular.module('mobistore', ['ngResource', 'ionic', 'ngCookies', "ngWaterfall", 
                 controller: 'TabCtrl'
             })
             .state('photo_show', {
-                url: '/photo_show/:goods_id/',
+                url: '/photo_show/:series_id/',
                 templateUrl: 'templates/photo_show.html',
                 controller: 'Photo_showCtrl'
             })
             .state('art_workshop', {
-                url: '/art_workshop/:goods_id/',
+                url: '/art_workshop/:series_id/',
                 templateUrl: 'templates/art_workshop.html',
                 controller: 'Art_workshopCtrl'
             })

@@ -23,10 +23,10 @@
                 <div class="or_s_list" ng-repeat="goods in yorder_list">
                     <img class="or_s_img" src="http://mall.apin.com.cn/data/upload/shop/store/goods/1714/1714_05955234866289854.jpg">
                     <p><span>商品名称&nbsp;&nbsp;</span><span ng-bind-html="goods.goods_name" style="color:darkolivegreen;"></span></p>
-                    <p><span>尺寸&nbsp;&nbsp;</span><span style="color:darkolivegreen;margin-left: 75%;">{{size}}</span></p>
-                    <p><span>颜色&nbsp;&nbsp;</span><span style="color:darkolivegreen;margin-left: 67%;" class="or_pcolor">{{color}}</span></p>
-                    <p><span>单价&nbsp;&nbsp;</span><span style="color:darkolivegreen;margin-left: 62%;" class="or_pprice">￥{{goods.goods_price}}</span></p>
-                    <p><span>数量&nbsp;&nbsp;</span><span style="color:darkolivegreen;margin-left: 77%;" class="buy_amounts">{{order_amounts}}</span></p>
+                    <p><span>尺寸&nbsp;&nbsp;</span><span style="color:darkolivegreen;">{{size}}</span></p>
+                    <p><span>颜色&nbsp;&nbsp;</span><span style="color:darkolivegreen;">{{color}}</span></p>
+                    <p><span>单价&nbsp;&nbsp;</span><span style="color:darkolivegreen;">￥{{goods.goods_price}}</span></p>
+                    <p><span>数量&nbsp;&nbsp;</span><span style="color:darkolivegreen;" class="buy_amounts">{{order_amounts}}</span></p>
                 </div>
                 <div class="or_w_box">买家留言：<input type="text" /></div>
             </div>
