@@ -1,0 +1,74 @@
+<ion-view view-title="确认订单" id="confirm_order">
+    <ion-nav-bar>
+        <ion-nav-buttons side="left">
+            <div class="back" ng-click="goback()"></div>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="has-header order">
+        <div class="or_wrapper">
+            <div class="or_m_box">
+                <div class="or_icon or_wz_ico"></div>
+                <div class="or_icon or_zk_ico"></div>
+                <p class="or_txt">收货人信息</p>
+                <div class="or_message" ng-click="gotoPage('/detail_message')">
+                    <p>收货人：Sophie Yao</p>
+                    <p>收货人电话：1234567890</p>
+                    <p class="or_add">收货人地址：广州市海珠区新港西路82号自编C-1区</p>
+                </div>
+            </div>
+            <div class="or_s_box">
+                <div class="or_m_list">
+                    <span>订单编号：201810108888888</span>
+                    <span class="or_ctxt">订单状态：待确认</span>
+                </div>
+                <img class="or_s_img" src="http://pic.58pic.com/58pic/14/62/50/62558PICxm8_1024.jpg">
+                <div class="or_s_list">
+                    <p><span>商品名称</span><span>***系列-作品名T恤</span></p>
+                    <p><span>尺寸</span><span>S</span></p>
+                    <p><span>颜色</span><span>白色</span></p>
+                    <p><span>单价</span><span>￥99.00</span></p>
+                    <p><span>数量</span><span>1</span></p>
+                </div>
+                <div class="or_w_box">买家留言：<input type="text" /></div>
+            </div>
+            <div class="or_pay_box">
+                <div class="or_fq">T-Plus分期</div>
+                <div class="or_df" ng-click="gotoPage('/replace_pay')">朋友代付</div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="or_confirm">
+        <span class="or_price">总金额 <span class="or_n_price">￥99.00</span></span>
+        <span class="or_yf">含运费</span>
+        <span class="or_submit" ng-click="hshow()">提交订单</span>
+    </div>
+    <div class="or_hei_box">
+        <div class="or_content">
+            <div class="or_zftxt">确认支付</div>
+            <div class="or_c_box">
+                <div class="or_c_price">￥99.00</div>
+                <dl>
+                    <dd><span>订单金额</span><span class="or_num_price">￥99.00</span></dd>
+                    <dd><span>订单优惠</span><span class="or_num_discount">-￥0.00</span></dd>
+                </dl>
+            </div>
+            <div class="or_pay_way">
+                <span class="or_pw">支付方式</span>
+                <div class="or_s_pay">
+                    <div>
+                        <div id="s_zfb" class="or_pay_circle"></div>
+                        <div class="or_zfb_pay"></div><span class="or_zfb_txt">支付宝</span>
+                    </div>
+                    <div>
+                        <div id="s_wx" class="or_pay_circle"></div>
+                        <div class="or_wx_pay"></div><span class="or_wx_txt">微&nbsp;&nbsp;&nbsp;信</span>
+                    </div>
+                </div>
+            </div>
+            <div class="or_pay" ng-click="gotoPage('/tab/home')">立即支付</div>
+        </div>
+    </div>
+</ion-view>

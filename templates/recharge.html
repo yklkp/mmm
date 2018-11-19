@@ -1,0 +1,27 @@
+<ion-view id="recharge" view-title="订单付款">
+    <ion-nav-bar class="my-header-bar bar-dark">
+        <ion-nav-buttons side="left">
+            <span class="button button-small button-clear my-back" ng-click="goback()">
+                <i class="icon ion-chevron-left"></i>
+            </span>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <div class="trade_info_contaner">
+            <div class="trade_info_top" style="margin-bottom: 0px;">
+                <p>订单金额：<i style="color: #d75356;font-size: 22px;float: right;">{{order_amount}}</i></p>
+            </div>
+             <div class="trade_dl_box">
+                 <dl class="trade_dl">
+                       <dd>订单编号：{{order_sn}}</dd>
+                 </dl>
+                 <dl class="recharge_dl">
+                     <dt>选择支付方式</dd>
+                     <dd><img class="lt_img" src="http://mall.apin.com.cn/data/app/imgs/weixn_pay.png"><p>微信支付</p><span class="cr_icon" ng-class="{'cur': type==1}" ng-click="switch(1)"></span></dd>
+                     <!--<dd><img class="lt_img" src="http://mall.apin.com.cn/data/app/imgs/zhifubao_pay.png"><p>支付宝支付</p><span class="cr_icon" ng-class="{'cur': type==2}" ng-click="switch(2)"></span></dd>-->
+                 </dl>
+                 <div class="recharge_bigbtn" ng-click="pay()">立即付款</div>
+             </div>
+        </div>
+    </ion-content>
+</ion-view>

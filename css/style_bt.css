@@ -1,0 +1,1112 @@
+@media screen and (min-width: 768px) {
+    /*home*/
+    #home ion-content{font-size: 24px;}
+    .ho_tp p{margin-top: 9% !important;}
+    /*home*/
+    /*find*/
+    #find ion-content{font-size: 24px;}
+    .gf_dz {
+        position: absolute;
+        top: 36%;
+        right: 3%;
+    }    
+    .gf_name {
+        position: absolute;
+        top: 35%;
+    }
+    .hl_header span {
+        display: inline-block;
+        background: #fff;
+        padding: 1.5% 3%;
+        margin: 2.5% auto;
+        margin-right: 5%;
+        border-radius: 9px;
+        font-size: 20px;
+    }
+    .hl_name {
+        position: absolute;
+        top: 34%;
+    }
+    /*find*/
+    /*me*/
+    #me ion-content{font-size: 24px;}
+    .me_banner {
+        width: 100%;
+        height: 25vh;
+    }
+    .me_sign {
+        position: absolute;
+        top: 54%;
+        right: 9.5%;
+        padding: 6px 15px;
+        background: #fff;
+    }
+    .me_header dd {
+        display: inline-block;
+        margin-right: 11%;
+    }
+    .me_mp {
+        position: absolute;
+        top: 50%;
+        left: 7%;
+    }
+    .me_mp img {
+        border-radius: 100%;
+        width: 58%;
+        height: 16.5vh;
+    }
+    .me_name {
+        color: #fff;
+        position: absolute;
+        top: 56%;
+        font-size: 24px;
+        margin-left: 38%;
+    }
+    .me_icon {
+        background: url(../img/ico.png) no-repeat;
+        zoom: 0.56;
+        margin: 1% auto;
+        margin-left: 5%;
+    }
+    .me_zy_ico{background-position: -90px -101px;width: 60px;height: 55px;display: inline-block;}
+    .me_sc_ico{background-position: -169px -104px;width: 54px;height: 54px;display: inline-block;}
+    .me_xx_ico{background-position: -248px -104px;width: 56px;height: 48px;display: inline-block;}
+    .me_dd_ico{background-position: -331px -107px;width: 44px;height: 49px;display: inline-block;}
+    .me_xy_ico{background-position: -131px -176px;width: 48px;height: 38px;display: inline-block;}
+    .me_fq_ico{background-position: -204px -174px;width: 48px;height: 48px;display: inline-block;}
+    .me_hx_ico{background-position: -280px -171px;width: 48px;height: 48px;display: inline-block;}
+    /*me*/
+    /*photo_show*/
+    .ps_select {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 88px;
+        background: rgba(255,255,255,0.8);
+    }
+    .ps_ico {
+        display: inline-block;
+        width: 24%;
+        text-align: center;
+        margin-top: 22px;
+    }
+    .ps_icon {
+        background: url(../img/ico.png) no-repeat;
+        zoom: 0.22;
+    }
+    .ps_show {
+        width: 100%;
+        height: 96vh;
+    }
+    .ps_dl_ico {
+        background-position: -218px -1056px;
+        width: 189px;
+        height: 186px;
+        display: inline-block;
+    }
+    .ps_xx_ico {
+        background-position: -15px -1066px;
+        width: 176px;
+        height: 176px;
+        display: inline-block;
+    }
+    .ps_sc_ico {
+        background-position: -21px -612px;
+        width: 77px;
+        height: 77px;
+        display: inline-block;
+        zoom: 0.58;
+    }
+    .ps_bc_ico {
+        background-position: -129px -727px;
+        width: 68px;
+        height: 72px;
+        display: inline-block;
+        zoom: 0.6;
+    }
+    /*photo_show*/
+    /*art_workshop*/
+    #art_workshop ion-content{font-size: 24px;}
+    /*art_workshop*/
+    /*renew*/
+    .rn_nav_list {
+        text-align: center;
+        font-size: 24px;
+    }
+    .rn_sc {
+        background: #cadde1;
+        margin-right: 66%;
+    }
+    .rn_shop_list dl {
+        font-size: 20px;
+        width: 47%;
+        display: inline-block;
+        margin-top: 4%;
+        margin-right: 5%;
+        margin-bottom: 2.5%;
+    }
+    .mo_pay_circle {
+        width: 35px;
+        height: 35px;
+        border: 1px solid #0acffe;
+        border-radius: 100%;
+        position: absolute;
+        top: 36%;
+        left: 5.5%;
+    }
+    .rn_sl_img {
+        width: 36%;
+        height: 86%;
+        position: absolute;
+        top: 6%;
+        left: 15%;
+    }
+    /*renew*/
+    /*mine_news*/
+    #mine_news ion-content{font-size: 24px;}
+    .mn_txt_box {
+        display: inline-block;
+        margin: 4.5%;
+        margin-left: 39.5%;
+        margin-right: 0;
+    }
+    .mn_icon {
+        background: url(../img/ico.png) no-repeat;
+        zoom: 0.6;
+        position: absolute;
+        top: 15%;
+        left: 14%;
+    }
+    .mn_xt {
+        background-position: -46px -1476px;
+        width: 240px;
+        height: 240px;
+        display: inline-block;
+    }
+    .mn_wl {
+        background-position: -345px -1476px;
+        width: 240px;
+        height: 240px;
+        display: inline-block;
+    }
+    .mn_sjtxt {margin-left: 57%;color: #999999;font-size: 20px;}
+    .mn_xxbox {display: inline-block;margin: 4.5%;margin-left: 30%;margin-right: 0;}
+    .mn_txt_box .mn_wltxt {
+        font-size: 24px;
+    }
+    .mn_ctxt {
+        margin-left: 39.5%;
+        padding-bottom: 7%;
+    }
+    .mn_ccbox .mn_mstxt {
+        font-size: 20px;
+        width: 86%;
+        color: #5c5c5c;
+    }
+    .mn_ctxt .mn_mstxt {
+        font-size: 20px;
+        width: 86%;
+        color: #5c5c5c;
+    }
+    .mn_xxbox .mn_wltxt{font-size: 24px;}
+    .mn_ccbox {
+        display: inline-block;
+        margin-bottom: 10%;
+        margin-top: 0;
+        margin-left: 30%;
+        margin-right: 0;
+    }
+    .mn_list img {
+        position: absolute;
+        top: 10%;
+        left: 5%;
+        border-radius: 100%;
+        width: 160px;
+        height: 160px;
+    }
+    .mn_sjxx {
+        margin-left: 39%;
+        color: #999999;
+        font-size: 20px;
+    }
+    /*mine_news*/
+    /*personal_record*/
+    .pr_jdtxt{    
+        border-right: 1px solid #999999;
+        padding-right: 6%;
+        padding-left: 0;
+    }
+    .pr_dbox{
+        width: 100%;
+        color: #999999;
+        position: absolute;
+        top: -2px;
+        left: -2.4%;
+    }
+    .pr_circle{
+        border: 4px solid #2fb6bc;
+        border-radius: 100%;
+        display: inline-block;
+        background: #fff;
+        width: 4.63%;
+        height: 3.2vh;
+        vertical-align: -58%;
+    }
+    /*personal_record*/
+    /*mine_show*/
+    #mine_show ion-content{font-size: 20px;}
+    .ms_name {
+        margin-left: 37%;
+        font-size: 27px;
+        margin-bottom: 2%;
+    }
+    .ms_count {
+        margin-bottom: 22%;
+        text-align: center;
+        font-size: 27px;
+    }
+    .ms_nav_list .ms_title {
+        display: inline-block;
+        width: 19%;
+        margin: 2%;
+        padding-bottom: 3.2%;
+        font-size: 27px;
+    }
+    .ms_header dd {
+        display: inline-block;
+        margin-right: 13%;
+    }
+    .ms_header {
+        position: relative;
+        padding-top: 5%;
+        /* padding-bottom: 2.5%; */
+        background: #fff;
+    }
+    .ms_mp {
+        position: absolute;
+        top: 44px;
+        left: 64px;
+    }
+    .ms_mp img {
+        border-radius: 100%;
+        width: 23%;
+        height: 14.5vh;
+    }
+    /*mine_show*/
+    /*goodsdetail*/
+    #goodsdetail ion-content{font-size: 30px;}
+    .black{
+        background: black;
+        width: 22px;
+        height: 22px;
+        display: inline-block;
+    }
+    .white{display: inline-block;width: 22px;height: 22px;background: white;}
+    .grey{display: inline-block;width: 22px;height: 22px;background: grey;}
+    .blue{display: inline-block;width: 22px;height: 22px;background: blue;}
+    .ge_price {
+        font-size: 40px;
+    }
+    .ge_name{margin-bottom: 3%;}
+    .ge_num {
+        float: right;
+        margin-right: 0;
+        width: 200px;
+        margin-top: -1.5%;
+    }
+    .ge_int {
+        outline: none;
+        border: none;
+        text-align: center;
+        width: 20px;
+        font-size: 30px !important;
+    }
+    .ge_size span {
+        display: inline-block;
+        margin: 5% 4.6%;
+        color: #999999;
+    }
+    .ge_p_size span {
+        display: inline-block;
+        margin: 4% 3.1%;
+        color: #999999;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+    }
+    .ccolor{width: 30px;height: 30px;}
+    .ge_icon {
+        background: url(../img/ico.png) no-repeat;
+        zoom: 0.6;
+    }
+    .ge_sc_ico {
+        background-position: -18px -712px;
+        width: 80px;
+        height: 81px;
+        display: inline-block;
+        position: absolute;
+        top: 1%;
+        right: 5%;
+    }
+    .ge_xq_icon {
+        background: url(../img/ico.png) no-repeat;
+        zoom: 0.26;
+    }
+    .ge_xq_ico {
+        background-position: -472px -1054px;
+        width: 161px;
+        height: 88px;
+        float: right;
+        margin-right: 5%;
+    }
+    .ge_footer {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        background: #fff;
+        font-size: 30px;
+    }
+    .ge_shop_cart {
+        background: #fb7c00;
+        float: right;
+        width: 30%;
+        height: 90px;
+        line-height: 90px;
+        text-align: center;
+        color: #fff;
+    }
+    .ge_buy {
+        background: #ea1101;
+        float: right;
+        width: 30%;
+        height: 90px;
+        line-height: 90px;
+        text-align: center;
+        color: #fff;
+    }
+    .ge_wrapper{margin: 3%;margin-bottom: 90px;}
+    .ge_hei_box {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 10;
+        background: rgba(8, 8, 8, 0.5);
+        font-size: 24px;
+    }
+    .ge_p_img {
+        width: 37%;
+        height: 25vh;
+        position: absolute;
+        top: 43%;
+        left: 5%;
+        z-index: 10;
+    }
+    .ge_close {
+        position: absolute;
+        top: 54%;
+        left: 94%;
+        z-index: 20;
+        width: 10px;
+        height: 10px;
+    }
+    .ge_yf {
+        position: absolute;
+        top: 40px;
+        left: 55%;
+    }
+    .ge_c_buy {
+        float: right;
+        width: 30%;
+        height: 80px;
+        line-height: 80px;
+        text-align: center;
+        background: red;
+        color: #fff;
+    }
+    .ge_p_sl {
+        margin-right: 128px;
+    }
+    .ge_p_price {
+        margin-right: 128px;
+    }
+    .ge_cy {
+        margin-right: 73px;
+    }
+    /*goodsdetail*/
+    /*confirm_order*/
+    #confirm_order ion-content{font-size: 20px;}
+    #order_confirm ion-content{font-size: 20px;}
+    .or_icon {
+        background: url(../img/ico.png) no-repeat;
+        zoom: 0.32;
+        vertical-align: 17%;
+    }
+    .or_pcolor
+    {
+        color: darkolivegreen;
+        margin-left: 69%;
+    }
+    .or_pprice{
+        color: darkolivegreen;
+        margin-left: 65.5%;
+    }
+    .or_zk_ico {
+        background-position: -709px -1024px;
+        width: 88px;
+        height: 160px;
+        display: inline-block;
+        position: absolute;
+        top: 48%;
+        right: 4%;
+    }
+    .or_wz_ico {
+        background-position: -845px -1018px;
+        width: 138px;
+        height: 166px;
+        display: inline-block;
+        position: absolute;
+        top: 48%;
+        left: 5%;
+    }
+    .or_confirm {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: #fff;
+        font-size: 20px;
+    }
+    .or_submit {
+        float: right;
+        width: 30%;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        background: red;
+        color: #fff;
+    }
+    .or_price {
+        position: absolute;
+        left: 51%;
+        top: 10%;
+    }
+    .or_yf {
+        position: absolute;
+        top: 40px;
+        left: 59%;
+    }
+    .or_zftxt {
+        height: 80px;
+        text-align: center;
+        line-height: 80px;
+        border-bottom: 1px solid #999999;
+        font-size: 32px;
+    }
+    .or_c_box dl dd {
+        font-size: 32px;
+        margin-bottom: 4%;
+    }
+    .or_pw {
+        vertical-align: 151%;
+        font-size: 32px;
+    }
+    .or_zfb_txt {
+        vertical-align: 29%;
+        font-size: 32px;
+    }
+    .or_wx_txt {
+        vertical-align: 29%;
+        font-size: 32px;
+    }
+    .or_zfb_pay {
+        background: url(../img/ico.png) no-repeat;
+        zoom: 0.2;
+        vertical-align: 6%;
+        background-position: -251px -441px;
+        width: 159px;
+        height: 158px;
+        display: inline-block;
+        margin: auto 110px;
+    }
+    .or_wx_pay {
+        background: url(../img/ico.png) no-repeat;
+        zoom: 0.16;
+        vertical-align: 5%;
+        background-position: -8px -381px;
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+        margin: auto 142px;
+    }
+    .or_pay_circle {
+        width: 34px;
+        height: 34px;
+        vertical-align: 7%;
+        border: 1px solid #0acffe;
+        border-radius: 100%;
+        display: inline-block;
+    }
+    .or_c_price {
+        font-size: 100px;
+        height: 180px;
+        line-height: 180px;
+        text-align: center;
+    }
+    .or_pay_way {
+        margin-top: 4%;
+        margin-left: 4%;
+        margin-bottom: 17%;
+    }
+    .or_pay {
+        text-align: center;
+        font-size: 32px;
+        background: #06b2db;
+        color: #fff;
+        width: 89%;
+        margin-left: 5.5%;
+        padding: 3.5%;
+        border-radius: 6px;
+        margin-bottom: 5%;
+    }
+    /*confirm_order*/
+    /*detail_message*/
+    .dm_message input {
+        width: 86%;
+        height: 60px;
+        font-size: 20px;
+        margin-left: 9%;
+        overflow-x: hidden;
+        background: #fff;
+    }
+    .dm_add {
+        height: 60px;
+        line-height: 60px;
+        background: #fff;
+        margin-top: 10%;
+        font-size: 20px;
+    }
+    /*detail_message*/
+    /*collection*/
+    .cl_header {
+        background: #fff;
+        padding: 2% 6%;
+        border-top: 2px solid #f8f8f8;
+        font-size: 20px;
+    }
+    /*collection*/
+    /*stage*/
+    .st_fq_txt {
+        margin: 5% auto;
+        font-size: 24px;
+    }
+    .st_fq_num {
+        font-size: 90px;
+        margin: 10%;
+    }
+    .st_item{font-size: 20px}
+    .st_open {
+        background: #06b2db;
+        margin: 2% auto;
+        padding: 3%;
+        color: #fff;
+        border-radius: 2px;
+        width: 86%;
+        font-size: 26px;
+    }
+    /*stage*/
+    /*mine_credit*/
+    #mine_credit ion-content{font-size: 28px;}
+    .mc_xg_txt {
+        padding: 5%;
+        border-bottom: 1px solid #999999;
+        background: #fff;
+        margin-top: 7% !important;
+        font-size: 30px;
+    }
+    .mc_header {
+        background: url(../img/mine_credit.png) no-repeat;
+        background-size: 100% 540px;
+        width: 100%;
+        height: 540px;
+    }
+    .mc_box {
+        text-align: center;
+        color: #fff;
+        padding-top: 198px;
+    }
+    .mc_evaluate {
+        margin-top: 55px;
+        margin-bottom: 45px;
+    }
+    .mc_icon {
+        background: url(../img/ico.png) no-repeat;
+        zoom: 0.56;
+    }
+    .mc_jl_ico {
+        background-position: -15px -828px;
+        width: 90px;
+        height: 90px;
+        display: inline-block;
+    }
+    .mc_dj_ico {
+        background-position: -151px -830px;
+        width: 106px;
+        height: 78px;
+        display: inline-block;
+    }
+    .mc_score {
+        font-size: 72px;
+    }
+    .mc_evaluate {
+        margin-top: 55px;
+        margin-bottom: 45px;
+        font-size: 24px;
+    }
+    .mc_box:last-child{font-size: 20px;}
+    .mc_s_credit span p:first-child{margin-bottom: 15% !important;}
+    /*mine_credit*/
+    /*personal_record*/
+    .pr_header {
+        background: url(../img/personal_record.png) no-repeat;
+        background-size: 100% 300px;
+        width: 100%;
+        height: 300px;
+    }
+    .pr_rbox {
+        color: #fff;
+        text-align: center;
+        margin-top: 68px;
+        margin-left: 1%;
+    }
+    /*personal_record*/
+    /*credit_record*/
+    .credit_record ion-content{font-size: 24px;}
+    .sd_money {
+        position: absolute;
+        top: 40%;
+        right: 9%;
+        font-size: 28px;
+    }
+    .sd_goods {
+        position: relative;
+        font-size: 18px;
+    }
+    .cr_header {
+        background: url(../img/credit_record.png) no-repeat;
+        background-size: 100% 430px;
+        width: 100%;
+        height: 430px;
+        color: #fff;
+        text-align: center;
+        position: relative;
+    }
+    .cr_wrapper {
+        margin: 12.5px;
+        margin-top: 36px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        background: #fff;
+        border-top: 2px solid #f8f8f8;
+        border-bottom: 2px solid #f8f8f8;
+    }
+    .cr_bdetail {
+        position: absolute;
+        bottom: 104px;
+        left: 32.5%;
+        width: 35%;
+        background: #fff;
+        color: #4ca4e1;
+        border-radius: 19px;
+        padding: 12.5px 16.6px;
+        font-size: 24px;
+    }
+    .cr_qk {
+        padding-top: 100px;
+        padding-left: 4%;
+        padding-bottom: 5%;
+        font-size: 24px;
+    }
+    .cr_dtxt {
+        padding-top: 66px;
+        padding-bottom: 15px;
+        font-size: 24px;
+    }
+    .cr_xtxt {
+        padding-top: 23px;
+        padding-bottom: 91px;
+        font-size: 24px;
+    }
+    .cr_pnum {
+        font-size: 80px;
+        margin: 31px;
+    }
+    .cr_edtxt {
+        color: black;
+        font-size: 24px;
+    }
+    .cr_ptxt {
+        color: #999999;
+        font-size: 20px;
+    }
+    /*credit_record*/
+    /*mine_check*/
+    .mk_header {
+        background: #4ea2e2;
+        width: 100%;
+        height: 148px;
+    }
+    .mk_wrapper {
+        margin: 14.5px;
+        margin-top: 20px;
+        padding-top: 42px;
+        padding-bottom: 50px;
+        background: #fff;
+        border-top: 2px solid #f8f8f8;
+        border-bottom: 2px solid #f8f8f8;
+    }
+    .mk_ptxt {
+        font-size: 40px;
+        margin-top: 30px;
+        margin-bottom: 37px;
+    }
+    .mk_mx {
+        padding: 15px;
+        padding-top: 153px;
+        padding-bottom: 38px;
+    }
+    .mk_buy {
+        background: #a0e8ff;
+        width: 40%;
+        height: 55px;
+        line-height: 55px;
+        text-align: center;
+        color: #fff;
+        display: inline-block;
+    }
+    .mk_shop_cart {
+        background: #06b1dc;
+        width: 53%;
+        height: 55px;
+        line-height: 55px;
+        text-align: center;
+        color: #fff;
+        display: inline-block;
+    }
+    /*mine_check*/
+    /*mine_service*/
+    #mine_service ion-content{font-size: 20px;}
+    .mv_int {
+        outline: none;
+        border: none;
+        text-align: center;
+        width: 20px;
+        background: #fff;
+        font-size: 20px;
+    }
+    .q_txt {
+        width: 67%;
+        height: 86px;
+        font-size: 20px;
+    }
+    .mv_sc {
+        margin: 4%;
+        margin-top: 6%;
+        border: 1px solid black;
+        margin-left: 77px !important;
+        padding: 1% 10px;
+        position: relative;
+        width: 103px;
+    }
+    .mv_bsc {
+        position: absolute;
+        top: -2px;
+        left: -1px;
+        opacity: 0;
+        width: 103px;
+    }
+    /*mine_service*/
+    /*order_detail*/
+    #order_detail ion-content{font-size: 20px;}
+    #order_detail input{font-size: 20px;}
+    .oa_s_img {
+        position: absolute;
+        top: 21%;
+        left: 5%;
+        width: 33%;
+        height: 42%;
+    }
+    /*order_detail*/
+    /*mine_data*/
+    #mine_data ion-content{font-size: 20px;}
+    .md_xxtxt {
+        padding-left: 5%;
+        font-size: 30px;
+    }
+    .md_tx img {
+        width: 20%;
+        height: 14vh;
+        border-radius: 100%;
+        float: right;
+        margin: 3%;
+        margin-right: 6.5%;
+    }
+    /*mine_data*/
+    /*personal_record*/
+    #personal_record ion-content{font-size: 24px;}
+    .pr_rbox {
+        color: #fff;
+        text-align: center;
+        margin-top: 81px;
+        margin-left: 1%;
+    }
+    .pr_pnum {
+        font-size: 45px;
+    }
+    .pr_icon {
+        background: url(../img/ico.png) no-repeat;
+        zoom: 0.51;
+        position: absolute;
+        top: 26px;
+        left: 8%;
+    }
+    .pr_positive {
+        background-position: 0 -1783px;
+        width: 120px;
+        height: 120px;
+        display: inline-block;
+    }
+    .pr_negative {
+        background-position: -158px -1783px;
+        width: 120px;
+        height: 120px;
+        display: inline-block;
+    }
+    /*personal_record*/
+    /*shop_cart*/
+    .sc_size {
+        background: #cadde1;
+        width: 105px;
+    }
+    .sc_color {
+        background: #cadde1;
+        width: 106px;
+    }
+    .sc_p_goods {
+        font-size: 20px;
+        display: inline-block;
+        width: 43%;
+        margin-top: 4%;
+        margin-right: -5%;
+        margin-bottom: 2.5%;
+        text-align: left;
+    }
+    .sc_int{font-size: 20px !important;}
+    .sc_shop_list img {
+        height: 86%;
+        width: 42%;
+        position: absolute;
+        top: 6%;
+        left: 14%;
+    }
+    /*shop_cart*/
+    /*advance_pay*/
+    #advance_pay ion-content{font-size: 24px;}
+    .ap_box2 {
+        background: #fff;
+        border-top: 2px solid #f8f8f8;
+        padding: 2%;
+        padding-left: 6%;
+        color: #979797;
+        font-size: 20px;
+    }
+    .ap_m_input input {
+        font-size: 45px;
+    }
+    /*advance_pay*/
+    /*select_stage*/
+    #select_stage ion-content{font-size: 24px;}
+    .sa_money{font-size: 28px;}
+    /*select_stage*/
+    /*confirm_stage*/
+    #confirm_stage ion-content{font-size: 24px;}
+    .ct_money {
+        position: absolute;
+        top: 40%;
+        right: 9%;
+        font-size: 28px;
+    }
+    .ct_sp {
+        color: #999999;
+        font-size: 20px;
+    }
+    .ct_fqlist dl {
+        color: #999999;
+        margin-bottom: 0;
+        margin-left: 14%;
+        border-bottom: 2px solid #f8f8f8;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        font-size: 20px;
+    }
+    /*confirm_stage*/
+    /*stage_detail*/
+    #stage_detail ion-content{font-size: 24px;}
+    .sd_edtxt {
+        font-size: 24px;
+        color: #999999;
+    }
+    .sd_ptxt {
+        font-size: 40px;
+        margin-top: 7%;
+        color: black;
+    }
+    /*stage_detail*/
+    /*mine_check*/
+    #mine_check ion-content{font-size: 24px;}
+    .mk_nav_list .mk_title {
+        display: inline-block;
+        width: 16%;
+        margin: 2% 6%;
+        margin-top: 6%;
+        padding-bottom: 3%;
+        font-size: 28px;
+    }
+    .mk_footer {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        background: #fff;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        font-size: 24px;
+    }
+    .mk_money {
+        position: absolute;
+        top: 40%;
+        right: 9%;
+        font-size: 28px;
+    }
+    /*mine_check*/
+    /*mine_detail*/
+    #mine_detail ion-content{font-size: 20px;}
+    .ma_ac input {
+        background: #fff;
+        vertical-align: 122%;
+        font-size: 24px;
+    }
+    .ma_data {
+        display: inline-block;
+        vertical-align: 134%;
+    }
+    .ma_gz {
+        float: right;
+        color: #fff;
+        background: #18b6ff;
+        padding: 1% 4%;
+        margin-top: 4.5%;
+    }
+    /*mine_detail*/
+    /*replace_pay*/
+    #replace_pay ion-content{font-size: 20px;}
+    .rp_icon {
+        background: url(../img/ico.png) no-repeat;
+        zoom: 0.4;
+    }
+    .rp_wx_ico {
+        background-position: -17px -222px;
+        width: 190px;
+        height: 154px;
+        display: inline-block;
+    }
+    .rp_qq_ico {
+        background-position: -257px -242px;
+        width: 157px;
+        height: 174px;
+        display: inline-block;
+    }
+    .rp_ax {
+        background: url(../img/ico.png) no-repeat;
+        zoom: 0.3;
+        background-position: -308px -846px;
+        width: 56px;
+        height: 46px;
+        display: inline-block;
+        margin-right: 1%;
+        padding-right: 2.3%;
+        vertical-align: -4%;
+    }
+    .rp_fill input {
+        width: 100%;
+        height: 60px;
+        border-bottom: 1px solid #999999;
+        padding-left: 18.7px;
+        background: #fff;
+        font-size: 20px;
+    }
+    .rp_header {
+        background: url(../img/replace_pay.png) no-repeat;
+        background-size: 100% 400px;
+        width: 100%;
+        height: 400px;
+        color: #fff;
+        text-align: center;
+    }
+    .rp_header dl {
+        padding: 67px 0;
+        margin-bottom: 0;
+    }
+    .rp_send {
+        background: url(../img/send.png) no-repeat;
+        background-size: 97.5% 55px;
+        width: 97.5%;
+        height: 55px;
+        line-height: 55px;
+        color: #fff;
+        text-align: center;
+        margin: 18.75px;
+    }
+    .rp_header dl dd{font-size: 28px;}
+    .rp_pnum span{
+        font-size: 80px;
+        margin-bottom: 23px;
+    }
+    /*replace_pay*/
+    /*confirm_replace*/
+    #confirm_replace ion-content{font-size: 24px}
+    .cc_dfnum {
+        font-size: 80px;
+    }
+    .cc_abox{font-size: 20px;}
+    .cc_header img {
+        width: 160px;
+        margin: 28.75px;
+    }
+    .cc_header {
+        background: url(../img/confirm_replace.png) no-repeat;
+        background-size: 100% 220px;
+        width: 100%;
+        height: 220px;
+    }
+    .cc_pbox {
+        display: inline-block;
+        width: 60%;
+        position: absolute;
+        top: 36px;
+    }
+    .cc_name {
+        margin-bottom: 55px;
+    }
+    .cc_dftxt {
+        padding: 6% 0;
+    }
+    .cc_djbox {
+        background: #fff;
+        text-align: center;
+        padding-bottom: 13%;
+        margin-bottom: 5%;
+    }
+    /*confirm_replace*/
+}

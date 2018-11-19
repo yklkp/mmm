@@ -1,0 +1,44 @@
+<ion-view id="login">
+    <ion-nav-bar>
+        <ion-nav-buttons side="left">
+            <div class="back" ng-click="goback()"></div>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="rl">
+        <div class="rl_header_ico"></div>
+        <div class="rl_wrapper">
+            <div class="rl_login_header">
+                <ul>
+                    <li class="rl_title1">欢迎回来</li>
+                    <li class="rl_title2">T-PLUS</li>
+                </ul>
+            </div>
+            <div class="rl_content">
+                <ul>
+                    <li>
+                        <div>用户名/手机号码</div><input type="text" ng-model="client.username">
+                    </li>
+                    <li>
+                        <div>密码/QQ</div><input type="password" ng-model="client.password">
+                    </li>
+                    <li><span ng-click="toSignup()">注册</span><span class="rl_right">忘记密码？</span></li>
+                </ul>
+                <button class="rl_register_button" ng-click="signon()">登录</button>
+            </div>
+            <div class="rl_footer">
+                <div class="rl_order">
+                    <span class="rl_line"></span>
+                    <span class="rl_txt">第三方登录</span>
+                    <span class="rl_line"></span>
+                </div>
+                <div class="rl_ico">
+                    <div class="rl_icon rl_wx_ico"></div>
+                    <div class="rl_icon rl_qq_ico"></div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

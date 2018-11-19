@@ -1,0 +1,59 @@
+<ion-view id="mine_check" view-title="我的账单">
+    <ion-nav-bar>
+        <ion-nav-buttons side="left">
+            <div class="back" ng-click="goback()"></div>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="has-header">
+        <div class="mk_show_select">
+            <ul class="mk_nav_list">
+                <li class="mk_title mk_curr">9月应还</li>
+                <li class="mk_title mk_zpt">10月待还</li>
+                <li class="mk_title">未入账</li>
+            </ul>
+        </div>
+        <div class="mk_content">
+            <div class="mk_c_list mk_show">
+          
+            </div>
+            <div class="mk_c_list">
+                <div class="mk_header">
+                    <div>&nbsp;</div>
+                    <div class="mk_wrapper">
+                        <div>
+                            <div class="mk_edtxt">剩余待还（元）</div>
+                            <div class="mk_ptxt">10239.00</div>
+                            <div class="mk_pptxt">最后还款日10月9日</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mk_mx">本月账单明细共<span>30</span>笔</p>
+                <div class="mk_box">
+                    <div>10月1日</div>
+                    <div class="mk_goods">
+                        <div>T-恤订单号*****</div>
+                        <div class="mk_date">T恤购买</div>
+                        <div class="mk_money">-68.88</div>
+                    </div>
+                </div>
+                <div class="mk_box">
+                    <div>10月1日</div>
+                    <div class="mk_goods">
+                        <div>T-恤订单号*****</div>
+                        <div class="mk_date">T恤购买</div>
+                        <div class="mk_money">-68.88</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mk_c_list">
+
+            </div>
+        </div>
+    </ion-content>
+    <div class="mk_footer">
+        <div class="mk_buy" ng-click="gotoPage('/advance_pay')">提前还款</div><div class="mk_shop_cart" ng-click="gotoPage('/select_stage')">我要分期</div>
+    </div>
+</ion-view>

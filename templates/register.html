@@ -1,0 +1,51 @@
+<ion-view id="register">
+    <ion-nav-bar>
+        <ion-nav-buttons side="left">
+            <div class="back" ng-click="goback()"></div>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="rl">
+        <div class="rl_wrapper">
+            <div class="rl_header">
+                <ul>
+                    <li class="rl_title1">注册</li>
+                    <li class="rl_title3">欢迎成为我们的会员</li>
+                </ul>
+            </div>
+            <div class="rl_content">
+                <ul>
+                    <li>
+                        <div>手机号码</div><input type="text" ng-model="client.mobile" ng-blur="checkphone()">
+                    </li>
+                    <li>
+                        <div>验证码</div>
+                        <input type="text" ng-model="client.verify_code">
+                    </li>
+                    <li>
+                        <div>登录密码</div><input type="password" ng-model="client.password">
+                    </li>
+                    <li>
+                        <div>确认密码</div><input type="password" ng-model="client.password_confirm">
+                    </li>
+                </ul>
+                <div class="rl_get_code"><button ng-disabled="timeInterval!=60" class="button button-calm verify_code_btn"
+                        ng-click="getVerifyCode()" style="">{{verifyCodeText}}</button></div>
+                <button class="rl_register_button" ng-click="signup()">注册</button>
+            </div>
+            <div class="rl_footer">
+                <div class="rl_order">
+                    <span class="rl_line"></span>
+                    <span class="rl_txt">第三方登录</span>
+                    <span class="rl_line"></span>
+                </div>
+                <div class="rl_ico">
+                    <div ng-if="haswx" class="rl_icon rl_wx_ico" ng-click="wxlogin()"></div>
+                    <div ng-if="hasqq" class="rl_icon rl_qq_ico" ng-click="qqlogin()"></div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

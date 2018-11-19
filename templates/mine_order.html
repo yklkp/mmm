@@ -1,0 +1,46 @@
+<ion-view view-title="订单列表" id="mine_order">
+    <ion-nav-bar>
+        <ion-nav-buttons side="left">
+            <div class="back" ng-click="goback()"></div>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="has-header">
+        <div class="rn_renew_select">
+            <ul class="rn_nav_list">
+                <li class="mo_title rn_curr">全部</li>
+                <li class="mo_title">待付款</li>
+                <li class="mo_title">待发货</li>
+                <li class="mo_title">待收货</li>
+                <li class="mo_title">已完成</li>
+            </ul>
+        </div>
+        <div class="rn_content">
+            <div class="rn_c_list rn_show">
+                <div class="rn_shop_list" ng-click="gotoPage('/order_detail')">
+                    <div class="mo_pay_circle"></div>
+                    <img class="rn_sl_img" src="http://pic.58pic.com/58pic/14/62/50/62558PICxm8_1024.jpg">
+                    <dl>
+                        <dd><span class="rn_name">***系列-作品名T恤</span><span class="rn_p_num">￥99.00</span></dd>
+                        <dd class="rn_n_num">×1</dd>
+                        <dd><span class="rn_sc">S,白</span></dd>
+                        <dd class="rn_t_box">
+                            <div><span>共1件商品 合计: ￥99.00</span></div>
+                            <div class="rn_m_box"><span>待付款</span></div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="rn_c_list">
+            </div>
+            <div class="rn_c_list">
+            </div>
+            <div class="rn_c_list">
+            </div>
+            <div class="rn_c_list">
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

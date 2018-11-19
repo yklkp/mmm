@@ -1,0 +1,36 @@
+<ion-view id="order_detail" view-title="订单详情">
+    <ion-nav-bar>
+        <ion-nav-buttons side="left">
+            <div class="back" ng-click="goback()"></div>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="has-header">
+        <div class="or_m_box">
+            <div class="or_icon or_wz_ico"></div>
+            <p class="or_txt">收货人信息</p>
+            <div class="or_message" ng-click="gotoPage('/detail_message')">
+                <p>收货人：Sophie Yao</p>
+                <p>收货人电话：1234567890</p>
+                <p class="or_add">收货人地址：广州市海珠区新港西路82号自编C-1区</p>
+            </div>
+        </div>
+        <div class="or_s_box">
+            <div class="or_m_list">
+                <span>订单编号：201810108888888</span>
+                <span class="or_ctxt">订单状态：待确认</span>
+            </div>
+            <img class="oa_s_img" src="http://pic.58pic.com/58pic/14/62/50/62558PICxm8_1024.jpg">
+            <div class="oa_s_list">
+                <p><span>***系列-作品名T恤</span><span>×1</span></p>
+                <p><span>S</span><span>白色</span></p>
+                <p class="oa_p"><span>￥99.00</span></p>
+            </div>
+            <div class="oa_w_box">总金额<span class="oa_ptxt">￥99.00</span></div>
+            <div class="oa_pay"><span>付款</span></div>
+        </div>
+        <div class="oa_box">买家留言：<input type="text" /></div>
+        </ion-content>
+        </ion-view>

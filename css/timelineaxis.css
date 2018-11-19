@@ -1,0 +1,255 @@
+/*时间轴主区设置*/
+.timeaxis-warpper
+{
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: block;
+    margin-right: 15px;
+    padding-left: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-height: 200px;
+    position: relative;
+}
+/*时间轴箭头设置*/
+.timeaxis-warpper:before
+{
+    position: absolute;
+    top: 77px;
+    left: 5px;
+    display: inline-block;
+    border-top: 7px solid transparent;
+    border-left: 0 solid #00ced1;
+    border-right: 15px solid #00ced1;
+    border-bottom: 7px solid transparent;
+    content: " ";
+}
+
+.timeaxis
+{
+    padding: 0;
+    list-style: none;
+    height: 100px;
+    position: relative;
+    min-width: 100%;
+    display: inline-flex;
+}
+
+/*时间轴线设置*/
+.timeaxis:before
+{
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    height: 3px;
+    background-color: #00ced1;
+    top: 83%;
+    width: 100%;
+}
+/*轴线点设置*/
+.timeaxis-point
+{
+    width: 8px;
+    height: 8px;
+    top: 81px;
+    margin-left: 65px;
+    border-radius: 4px;
+    border: 1px solid #00ced1;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+.timeaxis-point span
+{
+    color: #bab9c9;
+    font-size: 10px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    left: -5px;
+}
+
+
+/*设置区域*/
+.timeaxis li
+{
+    float: left;
+    width: 140px;
+    height: 30px;
+}
+
+a .timeaxis-panel
+{
+    background-color: #fff;
+    float: left;
+    top: 5px;
+    border: 1px solid #d4d4d4;
+    border-radius: 2px;
+    width: 100%;
+    height: 65px;
+    position: relative;
+    padding: 5px 5px;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.175);
+}
+
+a .timeaxis-panel span
+{
+    color: #333333;
+}
+
+.timeaxis-panel:before
+{
+    position: absolute;
+    bottom: -13px;
+    top: auto;
+    left: 57px;
+    display: inline-block;
+    border-top: 13px solid #ccc;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-bottom: 0px solid #ccc;
+    content: " ";
+}
+
+.timeaxis-panel:after
+{
+    position: absolute;
+    bottom: -12px;
+    top: auto;
+    left: 58px;
+    border-top: 12px solid #fff;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 0px solid #fff;
+    content: " ";
+}
+
+a.active .timeaxis-panel,
+a:focus .timeaxis-panel
+{
+    border: 1px solid #00ced1;
+    background-color: #00ced1;
+}
+
+a.active .timeaxis-panel span,
+a:focus .timeaxis-panel span
+{
+    color: #ffffff;
+}
+
+a.active .timeaxis-panel:before,
+a:focus .timeaxis-panel:before
+{
+    position: absolute;
+    bottom: -13px;
+    top: auto;
+    left: 57px;
+    display: inline-block;
+    border-top: 13px solid #00ced1;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-bottom: 0px solid #00ced1;
+    content: " ";
+}
+
+a.active .timeaxis-panel:after,
+a:focus .timeaxis-panel:after
+{
+    position: absolute;
+    bottom: -12px;
+    top: auto;
+    left: 58px;
+    border-top: 12px solid #00ced1;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 0px solid #00ced1;
+    content: " ";
+}
+
+a.active .timeaxis-point
+{
+    width: 8px;
+    height: 8px;
+    top: 48px;
+    margin-left: 65px;
+    border-radius: 4px;
+    border: 2px solid #ffffff;
+    background-color: #00ced1;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+.timeaxis-inverted .timeaxis-panel
+{
+    top: 100px;
+}
+
+.timeaxis-inverted .timeaxis-panel:before
+{
+    position: absolute;
+    bottom: auto;
+    top: -12px;
+    left: 57px;
+    display: inline-block;
+    border-top: 0px solid #ccc;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-bottom: 12px solid #ccc;
+    content: " ";
+}
+
+.timeaxis-inverted .timeaxis-panel:after
+{
+    position: absolute;
+    bottom: auto;
+    top: -11px;
+    left: 58px;
+    border-top: 0px solid #fff;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 11px solid #fff;
+    content: " ";
+}
+
+.timeaxis-inverted a.active .timeaxis-panel:before,
+.timeaxis-inverted a:focus .timeaxis-panel:before
+{
+    position: absolute;
+    bottom: auto;
+    top: -12px;
+    left: 57px;
+    display: inline-block;
+    border-top: 0px solid #00ced1;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-bottom: 12px solid #00ced1;
+    content: " ";
+}
+
+.timeaxis-inverted a.active .timeaxis-panel:after,
+.timeaxis-inverted a:focus .timeaxis-panel:after
+{
+    position: absolute;
+    bottom: auto;
+    top: -11px;
+    left: 58px;
+    display: inline-block;
+    border-top: 0px solid #00ced1;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 11px solid #00ced1;
+    content: " ";
+}
+
+.timeaxis-hide {
+    width: 100%;
+    padding-left: 50%;
+    height: 15px;
+    background-color: #00ced1;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+}

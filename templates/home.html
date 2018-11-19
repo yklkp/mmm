@@ -1,0 +1,58 @@
+<ion-view view-title="首页" id="home">
+    <ion-nav-buttons side="left">
+        <div class="top_left"></div>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <div class="top_right"></div>
+    </ion-nav-buttons>
+    <ion-content class="has-header">
+        <ion-refresher refreshing-icon="ios-small" ng-if="is_refresh==1" pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+        <div class="ho_wrapper">
+            <div class="ho_header">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a>
+                                <img src="http://mall.apin.com.cn/mobiletplusweb/img/header.png">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a>
+                                <img src="http://img.027cgb.com/610175/1.png">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="ho_tag">
+                    <div class="ho_tp"><img src="http://pic.58pic.com/58pic/14/62/50/62558PICxm8_1024.jpg">
+                        <p>系列1</p>
+                    </div>
+                    <div class="ho_tp"><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2183035415,1632587145&fm=26&gp=0.jpg">
+                        <p>系列2</p>
+                    </div>
+                    <div class="ho_tp"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1540538157995&di=81eb0f9c57eb0620020e6a621e3496e8&imgtype=0&src=http%3A%2F%2Fimg5.duitang.com%2Fuploads%2Fitem%2F201309%2F14%2F20130914104953_dXzn5.thumb.700_0.jpeg">
+                        <p>系列3</p>
+                    </div>
+                    <div class="ho_tp"><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2546655005,642395146&fm=27&gp=0.jpg">
+                        <p>系列4</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ho_box">
+                <div class="ho_list" ng-repeat="goods in selection_goods" my-repeat-finished="goodsFinish_01()">
+                    <div class="ho_img-layout" ng-click="gotoPage('/photo_show/'+goods.goods_id+'/')">
+                        <div class="img_pro_box">
+                            <img class="img_pro_space" src="http://mall.apin.com.cn/data/upload/shop/store/goods/1714/1714_05955234866289854.jpg" alt=""/>
+                            <!--<img class="img_pro_space" src="{{goods.goods_image}}" alt=""/>-->
+                        </div>
+                        <!--<div class="main_pro_box">-->
+                            <!--<h4 ng-bind-html="goods.goods_name"></h4>-->
+                            <!--<p>￥{{parseFloat(goods.goods_price)}}</p>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

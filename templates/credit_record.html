@@ -1,0 +1,42 @@
+<ion-view id="credit_record" view-title="信用记录">
+    <ion-nav-bar>
+        <ion-nav-buttons side="left">
+            <div class="back" ng-click="goback()"></div>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="has-header">
+        <div class="cr_header">
+            <div class="cr_dtxt">可用额度（元）</div>
+            <div class="cr_pnum">761.00</div>
+            <div class="cr_xtxt">这月买下个月还，0费用</div>
+            <div class="cr_bdetail">查看详情</div>
+            <div class="cr_wrapper">
+                <div class="cr_txt" ng-click="gotoPage('/mine_check')">
+                    <div class="cr_edtxt">我的账单</div>
+                    <div class="cr_ptxt">还款日每月9号</div>
+                </div>
+                <div ng-click="gotoPage('/stage_detail')">
+                    <div class="cr_edtxt">我的额度</div>
+                    <div class="cr_ptxt">可用额度<span>761.00</span></div>
+                </div>
+            </div>
+        </div>
+        <p class="cr_qk">最近使用情况</p>
+        <div class="sd_box">
+            <div class="sd_goods">
+                <div>主动还款-2018年9月账单</div>
+                <div class="sd_sxf">手续费0.07</div>
+                <div class="sd_date">10-01</div>
+                <div class="sd_money">+160</div>
+            </div>
+            <div class="sd_goods">
+                <div>T-恤订单号*****</div>
+                <div class="sd_date">10-01</div>
+                <div class="sd_money">-160</div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

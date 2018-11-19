@@ -1,0 +1,68 @@
+<ion-view view-title="我" id="me">
+    <ion-nav-buttons side="left">
+        <div class="top_left"></div>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <div class="top_right"></div>
+    </ion-nav-buttons>
+    <ion-content class="has-header">
+        <div class="me_wrapper">
+            <div class="me_header">
+                <div class="me_banner"><img src="http://mall.apin.com.cn/mobiletplusweb/img/me.png"></div>
+                <div class="me_mp" ng-click="gotoPage('/mine_show')"><img src="https://yankk.cn/update/yk.jpg"></div>
+                <!--<div class="me_name" ng-if="is_login==0"><span class="login_span" ng-click="gotoPage('/login')">登录</span>&nbsp;|&nbsp;<span class="login_span" ng-click="gotoPage('/register')">注册</span></div>-->
+                <div class="me_name" ng-if="is_login==0"><span class="login_span" ng-click="gotoPage('/login')">点击登陆体验更多内容</span></div>
+                <div class="me_name" ng-if="is_login==1">{{info.customer_name}}</div>
+                <div class="me_sign">签到</div>
+                <dl>
+                    <dd>
+                        <p class="me_count">86</p>
+                        <p>发布</p>
+                    </dd>
+                    <dd>
+                        <p class="me_count">96</p>
+                        <p>粉丝</p>
+                    </dd>
+                    <dd>
+                        <p class="me_count">88</p>
+                        <p>关注</p>
+                    </dd>
+                    <dd>
+                        <p class="me_count">158</p>
+                        <p>我的T币</p>
+                    </dd>
+                </dl>
+            </div>
+            <div class="me_nav_list">
+                <dl>
+                    <dd class="zy" ng-click="gotoPage('/mine_show')">
+                        <div class="me_icon me_zy_ico"></div><span>我的个人主页</span>
+                    </dd>
+                    <dd class="sc" ng-click="gotoPage('/collection')">
+                        <div class="me_icon me_sc_ico"></div><span>我的收藏</span>
+                    </dd>
+                    <dd class="xx" ng-click="gotoPage('/mine_news')">
+                        <div class="me_icon me_xx_ico"></div><span>我的消息</span>
+                    </dd>
+                </dl>
+            </div>
+            <div class="me_nav_list">
+                <dl>
+                    <dd class="dd" ng-click="gotoPage('/mine_order')">
+                        <div class="me_icon me_dd_ico"></div><span>我的订单</span>
+                    </dd>
+                    <dd class="xy" ng-click="gotoPage('/mine_credit')">
+                        <div class="me_icon me_xy_ico"></div><span>Tplus信用</span>
+                    </dd>
+                    <dd class="fq" ng-click="gotoPage('/stage')">
+                        <div class="me_icon me_fq_ico"></div><span>分期服务</span>
+                    </dd>
+                    <dd class="hx" ng-click="gotoPage('/renew')">
+                        <div class="me_icon me_hx_ico"></div><span>以旧换新</span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="me_out" ng-if="is_login==1" ng-click="logout()">退出登录</div>
+    </ion-content>
+</ion-view>

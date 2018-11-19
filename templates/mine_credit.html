@@ -1,0 +1,35 @@
+<ion-view id="mine_credit" view-title="Tplus信用">
+    <ion-nav-bar>
+        <ion-nav-buttons side="left">
+            <div class="back" ng-click="goback()"></div>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="has-header">
+        <div class="mc_header">
+            <div class="mc_box">
+                <div class="mc_score">761</div>
+                <div class="mc_evaluate">信用极好</div>
+                <div>评估时间：<span>2018-10-10</span></div>
+            </div>
+        </div>
+        <div class="mc_s_credit">
+            <span>
+                <p>以旧换新</p>
+                <p>30次</p>
+            </span>
+            <span class="mc_b_line">
+                <p>信用服务</p>
+                <p>已启动</p>
+            </span>
+            <span>
+                <p>分期付款</p>
+                <p>已启动</p>
+            </span>
+        </div>
+        <p class="mc_xg_txt">信用管理</p>
+        <div class="mc_m_box"><span class="mc_ps_txt" ng-click="gotoPage('/mine_data')"><div class="mc_icon mc_dj_ico"></div><span>个人信息登记</span></span><span ng-click="gotoPage('/personal_record')"><div class="mc_icon mc_jl_ico"></div><span>信用历史记录</span></span></div>
+    </ion-content>
+</ion-view>

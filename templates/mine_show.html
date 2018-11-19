@@ -1,0 +1,66 @@
+<ion-view id="mine_show">
+    <ion-nav-bar>
+        <ion-nav-buttons side="left">
+            <div class="back" ng-click="goback()"></div>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="has-header">
+        <div class="ms_header">
+            <div class="ms_gz">关注</div>
+            <div class="ms_mp"><img src="http://pic.58pic.com/58pic/14/62/50/62558PICxm8_1024.jpg"></div>
+            <div class="ms_name" ng-if="is_login==1">{{info.customer_name}}</div>
+            <div class="ms_region">广州，中国</div>
+            <dl>
+                <dd>
+                    <p>发布</p>
+                    <p class="ms_count">86</p>
+                </dd>
+                <dd>
+                    <p>关注</p>
+                    <p class="ms_count">96</p>
+                </dd>
+                <dd>
+                    <p>粉丝</p>
+                    <p class="ms_count">88</p>
+                </dd>
+            </dl>
+        </div>
+        <div class="ms_show_select">
+            <ul class="ms_nav_list">
+                <li class="ms_title ms_curr">全部发布</li>
+                <li class="ms_title ms_zpt">作品图</li>
+                <li class="ms_title">创作视频</li>
+            </ul>
+        </div>
+        <div class="ms_content">
+            <div class="ms_c_list ms_show">
+                <div class="ms_box">
+                    <div class="ms_list">
+                        <div class="ms_img-layout">
+                            <img src="http://pic.58pic.com/58pic/14/62/50/62558PICxm8_1024.jpg">
+                        </div>
+                    </div>
+                    <div class="ms_list">
+                        <div class="ms_img-layout">
+                            <img src="http://pic.58pic.com/58pic/14/62/50/62558PICxm8_1024.jpg">
+                        </div>
+                    </div>
+                    <div class="ms_list">
+                        <div class="ms_img-layout">
+                            <img src="http://pic.58pic.com/58pic/14/62/50/62558PICxm8_1024.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ms_c_list">
+
+            </div>
+            <div class="ms_c_list">
+
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

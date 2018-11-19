@@ -1,0 +1,36 @@
+<ion-view view-title="售后服务" id="mine_service">
+    <ion-nav-bar>
+        <ion-nav-buttons side="left">
+            <div class="back" ng-click="goback()"></div>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="has-header">
+        <div class="mv_box1">
+            <dl>
+                <dd>服务类型：<span>以旧换新</span></dd>
+                <dd>提交数量：
+                    <span class="ge_p_cutdown">-</span>
+                    <input type="number" class="mv_int" value="2">
+                    <span class="ge_add">+</span>
+                </dd>
+                <dd>提交原因：<span>七天无理由</span></dd>
+                <dd>问题描述：<input type="text" class="q_txt">
+                    <div class="mv_sc">上传图片<input class="mv_bsc" type="file"></div>
+                    <p class="mv_tip">为了帮助您更好地解决问题，请上传图片最多可上传5张，每张大小不可超过5M，支持bmp、gif、jpg、jpeg格式文件</p>
+                </dd>
+            </dl>
+        </div>
+        <div class="mv_box2">
+            <dl>
+                <dd>换货地址信息<span class="mv_alter"> [修改]</span></dd>
+                <dd>换货人姓名：<span>Sophie Yao</span></dd>
+                <dd>换货人电话：<span>1234567890</span></dd>
+                <dd>换货人地址：<span>广州市海珠区新港西路82号自编C-1区</dd>
+            </dl>
+        </div>
+        <div class="mv_submit">提交申请</div>
+    </ion-content>
+</ion-view>

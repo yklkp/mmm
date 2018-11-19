@@ -1,0 +1,66 @@
+<ion-view view-title="***系列-作品名T恤" id="goodsdetail" on-touch="ontouch()" on-release="onrelease()">
+    <ion-nav-bar>
+        <ion-nav-buttons side="left">
+            <div class="back" ng-click="goback()"></div>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="has-header goods_detail">
+        <div class="ge_wrapper">
+            <div class="ge_goods_photo">
+                <img src="http://mall.apin.com.cn/data/upload/shop/store/goods/1714/1714_05955234866289854.jpg">
+            </div>
+            <div class="p_goods">
+                <div class="ge_title">
+                    <div class="ge_name">Blue Dog Animal系列 (系列名称)</div>
+                    <div ng-bind-html="goods_info.goods_name"></div>
+                    <div class="ge_icon ge_sc_ico"></div>
+                </div>
+                <div class="ge_price"><span style="color:red;">￥{{parseFloat(goods_info.goods_price)}}</span></div>
+                <div class="ge_detail">
+                    <span>商品详情描述</span>
+                    <div class="ge_xq_icon ge_xq_ico"></div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="ge_footer">
+        <div class="ge_buy" ng-click="hshow()">立即购买</div>
+        <div class="ge_shop_cart" ng-click="hshow()">加入购物车</div>
+    </div>
+    <div class="ge_hei_box">
+        <img src="http://mall.apin.com.cn/mobiletplusweb/img/close.png" ng-click="hhide()" class="ge_close">
+        <img class="ge_p_img" src="http://mall.apin.com.cn/data/upload/shop/store/goods/1714/1714_05955234866289854.jpg">
+        <div class="ge_content">
+            <div class="ge_p_list1">
+                <dl>
+                    <dd>
+                        <span class="ge_p_sl">数量</span>
+                        <span class="ge_p_cutdown" ng-click="reducenum(goods_price)">-</span>
+                        <span class="buy_num">{{parseInt(goods.goods_num)}}</span>
+                        <span class="ge_add" ng-click="addnum(goods_price)">+</span>
+                    </dd>
+                    <dd><span class="ge_p_price">价格</span><span class="ge_p_num">￥{{parseFloat(goods_price)}}</span></dd>
+                    <dd><span class="ge_cy">尺寸/颜色</span><span>请选择/确认</span></dd>
+                </dl>
+            </div>
+            <span class="ge_tcc">尺寸</span>
+            <span class="ge_p_size" ng-repeat="spec in goods_info.spec_group[0]['spec']">
+                <span ng-click="s_size()" ng-class="{'csize':csize}">{{spec}}</span>
+            </span>
+            <div class="ge_bys">
+            <span class="ge_tys">颜色</span>
+            <span class="ge_p_col" ng-repeat="spec in goods_info.spec_group[1]['spec']">
+                <span class="{{spec}}" ng-click="s_color()"  ng-class="{'ccolor':ccolor}"></span>
+            </span>
+            </div>
+            <div class="ge_confirm">
+                <span class="ge_zprice">总金额 <span style="color:red;">￥</span><span class="ge_n_price"></span></span>
+                <span class="ge_yf">含运费</span>
+                <span class="ge_c_buy" ng-click="gotobuy()">确认购买</span>
+            </div>
+        </div>
+    </div>
+</ion-view>
